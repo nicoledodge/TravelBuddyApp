@@ -204,6 +204,12 @@ header img {
     position:absolute;
     left: 25%;
 }
+
+.chip img {
+    height: 50px;
+    width: 50px;
+ }
+
 /* ul#horizontal-list {
     display: flex;
     justify-content: space-between;
