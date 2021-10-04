@@ -7,6 +7,7 @@ Contributors: Nicole Dodge, Brooke Jones, Jaime Martinez, Jack Manzer, Mat Lundi
 [add our githubs]
 
 ```md
+
 ## Purpose
 Our project team was tasked with tackling a real-world problem or need by creating an application. This task will allow us to increase our collaboration skills, gain exposure to server-side APIs,  and experience things we may run into as we venture out in the world as new developers. [End w/ 1-2 sentences about motivation for development...similar to and/or segue into our user story]
 ```
@@ -38,3 +39,31 @@ THEN my saved data persist
 ```
 
 ```md
+
+## Project Constraints
+* Use at least two [server-side APIs]
+* Only able to use free, publicly available APIs
+* Do not use alerts, confirms, or prompts (use modals).
+```
+
+```md
+## Technologies Used
+TK
+```
+
+```md
+## Our application
+[screenshots/gifs TK]
+```
+
+```md
+## Icebox
+[Ideas for future development]
+[Additional desired functionalities, etc.]
+
+```md
+## Ideas for Improvement
+If you have ideas for improvement, please contact one of us via the links to our github pages.
+```
+
+
