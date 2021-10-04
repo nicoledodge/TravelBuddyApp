@@ -52,3 +52,8 @@ callGeoNamesAPI()
 
 // Search for - country/city- start date 
 // show name of country, PLACE NAME, flag, Population, current weather, countdown to departure(number of days) add image Pixabay
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems,"");
+  });
