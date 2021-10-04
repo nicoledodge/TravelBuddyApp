@@ -70,7 +70,7 @@ p {
 .btn-close:hover {
     color: #919191;
 }
-.modal:target:before {
+/* .modal:target:before {
     display: none;
 }
 .modal:before {
@@ -126,7 +126,7 @@ p {
 .modal-footer {
     border-top: #eeeeee solid 1px;
     text-align: right;
-}
+} */
 a.pages::before {
   content: "";
   position: absolute;
