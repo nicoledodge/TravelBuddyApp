@@ -1,11 +1,13 @@
 //DOM Queries 
+
+
+
+
+//Global Variables 
 const placeName = 'austin';
 const geoNamesUsername = 'matmll12';
 let countryCode;
-const countryCodesApiKey = '4fe5a1c22abfdbabd905fdab3ebb1817'
-
-//Global Variables 
-
+let flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`
 
 
 
@@ -19,7 +21,9 @@ const callGeoNamesAPI = function(){
         if(response.ok){
             response.json().then(function(data){
                 countryCode = data.geonames[0].countryCode;
-                callCountryLayerAPI() 
+                flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`
+                callPixabayAPI() 
+               console.log(flagUrl);
             });
         } else {
             alert(`Error: ${response.statusText}`)
@@ -29,14 +33,14 @@ const callGeoNamesAPI = function(){
 
 //country name 
 
-function callCountryLayerAPI() {
+function callPixabayAPI() {
 
-    const apiUrl = `https://api.countrylayer.com/v2/alpha/${countryCode}?access_key=${countryCodesApiKey}`
+    const apiUrl = `https://pixabay.com/api/?key=23699081-1c7d96634df54c3a4261e64ca&q=${countryCode}`
 
     fetch(apiUrl).then(function(response) {
         if(response.ok){
             response.json().then(function(data){
-                console.log(data)
+                console.log(data.hits[0].largeImageURL)
             });
         } else {
             alert(`Error: ${response.statusText}`)
@@ -45,3 +49,6 @@ function callCountryLayerAPI() {
 }
 
 callGeoNamesAPI()
+
+// Search for - country/city- start date 
+// show name of country, PLACE NAME, flag, Population, current weather, countdown to departure(number of days) add image Pixabay
