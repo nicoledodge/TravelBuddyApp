@@ -11,37 +11,43 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
+
 <nav>
-  <div class="header-box">
-    <button class="Home" href="./index.html" class="btn">Travel App</button>
-    <ul>
-      <!-- button that takes yuser to bottom of page with github links -->
-      <li><a class="pages" href="#github"></li>
-      <!-- <li><a class="pages" href="#portfolio">Portfolio</a></li>
-      <li><a class="pages" href="#contact">Contact Me</a></li>
-      <li><a class="pages" href="#resume">Resume</a></li> -->
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">TravelBuddy</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!-- <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li> -->
+      <li><a href="#footer">Github</a></li>
     </ul>
   </div>
 </nav>
 
 <body>
-  
   <main>
     <!-- <header>
       <h1 class="heading">Travel App</h1>
     </header> -->
     <div class="image-box">
       <!-- <img src="/Users/nicoledodge/Desktop/Project/Project1/assets/images/_Z2A0032.jpg" alt="Travel Landscape Background Image"> -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ready to Travel?</a>
 
       <!-- Modal Structure -->
       <div id="modal1" class="modal">
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+          <div class="input-field col s6">
+            <form id="form">
+              <input name="placename" id="placename" type="text" class="validate" placeholder="Where to?">
+              <input name="startDate"id="startDate" type="date" class="datepicker">
+              <input name="" id="endDate" type="date" class="datepicker">
+              <!-- <button id="submit" class="btn waves-effect waves-light right" type="submit" name="action">Events -->
+                <!-- <i class="material-icons">Submit</i> -->
+              <!-- </button> -->
+            </form>
+          </div>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="#!" class="modal-close btn waves-effect waves-light right">Submit</a>
         </div>
       </div>
       <!-- <div class="wrap">
@@ -55,53 +61,50 @@
           </div>
           <div class="modal-body">
             <!-- <p>Country Information (:</p> -->
-            <div class="input-field col s6">
-              <form id="form">
-                <input name="placename" id="placename" type="text" class="validate" placeholder="Where to?">
-                <input name="startDate"id="startDate" type="date" class="datepicker">
-                <input name="" id="endDate" type="date" class="datepicker">
-                <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
-                </button>
-              </form>
-            </div>
+
 
             <p></p>
           </div>
-          <div class="modal-footer"> <a href="#modal-one" class="btn">Events--></a></div>
         </div>
-      </div> -->
+      </div>
     </div>
   </main>
-  <div class="column">
-    <!-- <h2 class="title" id="contact">Contact Me&nbsp;&nbsp;</h2> -->
-    <div class="vertical">
-      
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="chip">
+          <img src="https://avatars.githubusercontent.com/u/76898813?v=4"  alt="Contact Person">
+          Nikki
+        </div>
+        <div class="chip">
+          <img src="https://avatars.githubusercontent.com/u/76898813?v=4"  alt="Contact Person">
+          Nikki
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+  </footer>
 </body>
 
-<footer>
+<!-- <footer id="footer"> -->
   <!-- <ul id="horizontal-list"> -->
 
-    <div class="chip">
-      <img src=  alt="Contact Person">
-      Jane Doe
-    </div>
-    
-    <li>
-      <!-- <a class="list" id="github" href="https://github.com/nicoledodge">Nicole</a> -->
-      <div class="chip">
-        <img src= <a href="https://avatars.githubusercontent.com/u/76898813?v=4" class ="chip img" alt="Contact Person">
-      </div>
-    </li>
 
+    
+     <!-- <ul id="github">
+    <li><a class="list" id="github" href="https://github.com/nicoledodge">Nicole</a>
     <li><a class="list" id="github" href="https://github.com/mat-lundin">Mat</a></li>
     <li><a class="list" id="github" href="https://github.com/jackmanzer">Jack</a></li>
     <li><a class="list" id="github" href="https://github.com/jones406">Brooke</a></li>
     <li><a class="list" id="github" href="https://github.com/JAMATX38">Jaime</a></li>
-  </ul>
-</footer>
+  </ul> -->
+<!-- </footer> -->
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
