@@ -18,18 +18,19 @@ let end;
 
 const callGeoNamesAPI = function(){
     
-    const apiUrl = `http://api.geonames.org/searchJSON?q=&name_equals=${placeName}&maxRows=10&username=${geoNamesUsername}`
+    const apiUrl = `http://api.geonames.org/searchJSON?q=&name_equals=${placeName}&maxRows=10&username=${geoNamesUsername}`;
 
     fetch(apiUrl).then(function(response) {
         if(response.ok){
             response.json().then(function(data){
+                // console.log('data = ' + data);
                 countryCode = data.geonames[0].countryCode;
-                flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`
-                callPixabayAPI() 
+                flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`;
+                callPixabayAPI();
                console.log(flagUrl);
             });
         } else {
-            alert(`Error: ${response.statusText}`)
+            alert(`Error: ${response.statusText}`);
         }
     })
 }
@@ -43,7 +44,7 @@ function callPixabayAPI() {
     fetch(apiUrl).then(function(response) {
         if(response.ok){
             response.json().then(function(data){
-                console.log(data.hits[0].largeImageURL)
+                console.log(data.hits[0].largeImageURL);
             });
         } else {
             alert(`Error: ${response.statusText}`)
@@ -51,15 +52,20 @@ function callPixabayAPI() {
     })
 }
 
-callGeoNamesAPI()
+// callGeoNamesAPI()
 
 // Search for - country/city- start date 
 // show name of country, PLACE NAME, flag, Population, current weather, countdown to departure(number of days) add image Pixabay
 
 formEl.addEventListener('submit', function (event){
     event.preventDefault();
-    // placeName = formEl.placeName.value;
-    console.log(formEl.placename.value);
-    console.log(placeName);
+    placeName = formEl.placename.value;
+    // console.log(formEl.placename.value);
+    // console.log(placeName);
+    start = formEl.startDate.value;
+    // console.log(start)
+    end = formEl.endDate.value;
+    // console.log(end)
+    callGeoNamesAPI();
 
 })
