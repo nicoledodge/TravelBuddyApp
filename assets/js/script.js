@@ -1,14 +1,17 @@
 //DOM Queries 
-
-
-
+// const placeNameEl = document.getElementById('placename');
+// const startEl = document.getElementById('startdate');
+// const endEl = document.getElementById('enddate');
+// const submitBtn = document.getElementById('submit')
+const formEl = document.getElementById('form');
 
 //Global Variables 
-const placeName = 'austin';
+let placeName = 'austin';
 const geoNamesUsername = 'matmll12';
 let countryCode;
 let flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`
-
+let start;
+let end;
 
 
 //make first API call
@@ -52,3 +55,11 @@ callGeoNamesAPI()
 
 // Search for - country/city- start date 
 // show name of country, PLACE NAME, flag, Population, current weather, countdown to departure(number of days) add image Pixabay
+
+formEl.addEventListener('submit', function (event){
+    event.preventDefault();
+    // placeName = formEl.placeName.value;
+    console.log(formEl.placename.value);
+    console.log(placeName);
+
+})
