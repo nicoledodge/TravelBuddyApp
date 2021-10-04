@@ -15,7 +15,7 @@ body {
     padding: 1px;
     font-family:'Helvetica', arial;
     height:1000px;
-    background-image: url("/Users/nicoledodge/Desktop/Project/Project1/assets/images/Colorado.jpg");
+    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
     background-repeat: no-repeat;
     background-size: auto;
 }
