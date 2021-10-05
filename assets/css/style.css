@@ -128,7 +128,9 @@ header img {
     position:absolute;
     left: 25%;
 }
-
+/* .sidebar {
+    background-color: rgba(85, 85, 85, 0.8)
+} */
 .chip img {
     height: 41px;
     width: 41px;
