@@ -150,6 +150,9 @@ document.addEventListener('DOMContentLoaded', function () {
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
     placeName = formEl.placename.value.trim();
+    // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
+    //weather app needs hyphen
+    placeName = placeName.replace(/\s/g, '-');
     start = formEl.startDate.value;
     end = formEl.endDate.value;
     callGeoNamesAPI();
