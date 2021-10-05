@@ -13,10 +13,11 @@ const flagEl = document.getElementById('flag');
 let placeName = 'austin';
 const geoNamesUsername = 'matmll12';
 let countryCode;
-let flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`
+let flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`;
 let start;
 let end;
 let currentWeatherData;
+let pixabayImg;
 
 //callGeoNamesAPI
 
@@ -48,13 +49,17 @@ function callPixabayAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data.hits[0].largeImageURL);
+                // console.log(data.hits[0].largeImageURL);
+                pixabayImg = data.hits[0].largeImageURL;
+                // callCurrentWeatherDataAPI();
+                renderDatabox();
+
             });
         } else {
-            alert(`Error: ${response.statusText}`)
+            alert(`Error: ${response.statusText}`);
         }
     })
-}
+};
 
 //make Weather API call
 
@@ -68,6 +73,7 @@ const callCurrentWeatherDataAPI = function(cityName){
             response.json().then(function(data){
                 currentWeatherData = data;
                 console.log(data);
+                renderDatabox();
             });
         } else {
             alert(`Error: ${response.statusText}`)
@@ -76,6 +82,14 @@ const callCurrentWeatherDataAPI = function(cityName){
 };
 
 function renderDatabox(){
+    cityEl.textContent = placeName;
+    pixEl.setAttribute('src',pixabayImg);
+    flagEl.setAttribute('src',flagUrl);
+    dateEl.innerHTML = `
+    <p>${start} - ${end}</p>
+    `;
+    // weatherEl.
+    databoxEl.classList.remove('hide');
 
 }
 
@@ -88,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
     placeName = formEl.placename.value.trim();
+    
     console.log(formEl.placename.value);
     console.log(placeName);
     start = formEl.startDate.value;
@@ -96,8 +111,8 @@ formEl.addEventListener('submit', function (event) {
     console.log(end)
     callGeoNamesAPI();
     callCurrentWeatherDataAPI(placeName);
-    //populate data
-    databoxEl.classList.remove('hide');
+    // renderDatabox();
+    // databoxEl.classList.remove('hide');
 
-})
+});
 
