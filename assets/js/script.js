@@ -86,7 +86,7 @@ function renderDatabox(){
     pixEl.setAttribute('src',pixabayImg);
     flagEl.setAttribute('src',flagUrl);
     dateEl.innerHTML = `
-    <p>${start} - ${end}</p>
+    <p> Arrival: ${start} <br/> Departure: ${end}</p>
     `;
     // weatherEl.
     databoxEl.classList.remove('hide');

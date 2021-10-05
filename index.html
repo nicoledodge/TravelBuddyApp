@@ -13,11 +13,10 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-
 <nav>
   <div class="nav-wrapper blue-grey lighten-1">
     <a href="#" class="brand-logo">TravelBuddy</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <ul id="nav-mobile" class="right hide-on-small-and-down">
       <!-- <li><a href="sass.html">Sass</a></li>
       <li><a href="badges.html">Components</a></li> -->
       <li><a href="#footer">Github</a></li>
@@ -30,71 +29,79 @@
 
 <body>
   <main>
-    <!-- <header>
-      <h1 class="heading">Travel App</h1>
-    </header> -->
-    <div class="image-box">
+
+    <div class="container row" id = "readyBtn">
       <!-- <img src="/Users/nicoledodge/Desktop/Project/Project1/assets/images/_Z2A0032.jpg" alt="Travel Landscape Background Image"> -->
       <a class="waves-effect waves-light btn-large blue-grey darken-2 modal-trigger" href="#modal1">Ready to Travel?<i
           class="material-icons right">launch</i></a>
+    </div>
 
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <div class="input-field col s6">
-            <form id="form">
-              <input name="placename" id="placename" type="text" class="validate" placeholder="Where to? (Enter a city name)">
-              <input name="startDate" id="startDate" type="date" class="datepicker">
-              <input name="" id="endDate" type="date" class="datepicker">
-              <button type="submit" class="modal-close btn waves-effect waves-light right">Submit</button>
-              <!-- <button id="submit" class="btn waves-effect waves-light right" type="submit" name="action">Events
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="input-field col s6">
+          <form id="form">
+            <input name="placename" id="placename" type="text" class="validate"
+              placeholder="Where to? (Enter a city name)">
+            <input name="startDate" id="startDate" type="date" class="datepicker">
+            <input name="" id="endDate" type="date" class="datepicker">
+            <button type="submit" class="modal-close btn waves-effect waves-light right">Submit</button>
+            <!-- <button id="submit" class="btn waves-effect waves-light right" type="submit" name="action">Events
               <!-- <i class="material-icons">Submit</i> -->
-              <!-- </button> -->
-            </form>
-          </div>
-        </div>
-        <div class="modal-footer">
+            <!-- </button> -->
+          </form>
         </div>
       </div>
+      <div class="modal-footer">
+      </div>
+    </div>
 
-
-      <div class="col s12 m7 hide" id = "databox">
-        <h2 class="header" id="cityname">City Name</h2>
-        <div class="card horizontal small">
-          <div class="card-image" id="pix">
-            <img id="pixabay" src="https://lorempixel.com/100/190/nature/6">
-          </div>
-          <div>
-            <img id="flag" src=""/>
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <div id="dates">
-              </div>
-              <div id="countdown">
-                Your trip to ...
-              </div>
-              <div id="weather">
-                weather
-              </div>
+    <div class="container row" id = "maincontainer">
+    <div class="col s12 m8 l9 hide" id="databox">
+      <h2 class="header" id="cityname">City Name</h2>
+      <div class="card horizontal small">
+        <div class="card-image" id="pix">
+          <img id="pixabay" src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        
+        <div class="card-stacked">
+          <div class="card-content">
+            <div id="dates">
             </div>
-              <div class="modal-footer">
-                <a href="modal2" class="modal-close btn waves-effect waves-light right">Events</a>
-
-              </div>
-              <!-- <div class="modal-footer">
+            
+            <div id="countdown">
+              <p>
+                Days until trip:
+              </p>
+            
+            </div>
+            <div id="weather">
+              Current weather:
+            </div>
+            
+          </div>
+          <div class="modal-footer">
+            <div>
+              <img id="flag" src="" />
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
                 <a href="#!" class="modal-close btn waves-effect waves-light right">Events</a>
               </div> -->
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m3 l3" id="sidebar">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti consequuntur id expedita dignissimos explicabo commodi? Odit ab qui laudantium architecto eius reprehenderit neque quam deserunt doloribus, enim fugit ipsum, eligendi fuga soluta id blanditiis facilis, deleniti optio tenetur in sapiente quidem cumque consectetur quasi! Ipsam perspiciatis tempora nihil similique quae.
-          <!-- Grey navigation panel -->
         </div>
       </div>
+    </div>
+    <div class="col s12 m4 l3" id="sidebar">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti consequuntur id expedita dignissimos explicabo
+      commodi? Odit ab qui laudantium architecto eius reprehenderit neque quam deserunt doloribus, enim fugit ipsum,
+      eligendi fuga soluta id blanditiis facilis, deleniti optio tenetur in sapiente quidem cumque consectetur quasi!
+      Ipsam perspiciatis tempora nihil similique quae.
+      <!-- Grey navigation panel -->
+    </div>
+    </div>
+  </div>
 
-      <!-- <div id="modal2" class="modal">
+    <!-- <div id="modal2" class="modal">
         <div class="modal-content">
           <div class="input-field col s6">
           </div>
