@@ -10,12 +10,23 @@ body {
     color: #333333;
     position: relative;
     padding: 1px;
-    font-family:'Helvetica', arial;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
     height:1000px;
     background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
     background-repeat: no-repeat;
     background-size: auto;
 }
+   
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
 .wrap {
     padding: 40px;
     text-align: center;
@@ -27,10 +38,7 @@ hr {
     border: 0;
     border-top: 1px solid #aaaaaa;
 }
-h1 {
-    font-size: 30px;
-    margin-bottom: 40px;
-}
+
 p {
     margin-bottom: 20px;
 }
@@ -117,16 +125,21 @@ header img {
 }
 
 .chip img {
-    height: 50px;
-    width: 50px;
+    height: 41px;
+    width: 41px;
  }
+
+ .chip {
+    font-size: 80%;
+ }
+ 
  footer {
     position:absolute;
     display:inline;
     bottom:0;
     width:100%;
-    background-color:#333333;
  }
+ 
  /* #github {
      display:flex;
      justify-content: space-around;
