@@ -12,6 +12,7 @@ const eventBtn = document.getElementById('events_button');
 
 //Global Variables 
 let placeName; 
+let placeNameDisp;
 let countryCode;
 let flagUrl;
 let start;
@@ -93,7 +94,7 @@ function callCurrentWeatherDataAPI(cityName){
 //declare renderDatabox function
 
 function renderDatabox(){
-    cityEl.textContent = placeName;
+    cityEl.textContent = placeNameDisp;
     pixEl.setAttribute('src',pixabayImg);
     flagEl.setAttribute('src',flagUrl);
     dateEl.innerHTML = `
@@ -150,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
     placeName = formEl.placename.value.trim();
+    placeNameDisp = capitalizeFirstLetter(placeName);
     // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
     //weather app needs hyphen
     placeName = placeName.replace(/\s/g, '-');
@@ -157,6 +159,18 @@ formEl.addEventListener('submit', function (event) {
     end = formEl.endDate.value;
     callGeoNamesAPI();
 });
+
+// help via https://flexiple.com/javascript-capitalize-first-letter/
+function capitalizeFirstLetter(str){
+    const arr = str.split(' ');
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    
+    };
+
+    return arr.join(' ');
+
+};
 
 //API Call Sequence 
 
