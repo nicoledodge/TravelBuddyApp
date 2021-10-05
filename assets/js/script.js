@@ -1,5 +1,13 @@
 //DOM Queries 
 const formEl = document.getElementById('form');
+const databoxEl = document.getElementById('databox');
+const modalEl = document.getElementById('modal1');
+const cityEl = document.getElementById('cityname');
+const pixEl = document.getElementById('pixabay')
+const dateEl = document.getElementById('dates');
+const countdownEl = document.getElementById('countdown');
+const weatherEl = document.getElementById('weather');
+const flagEl = document.getElementById('flag');
 
 //Global Variables 
 let placeName = 'austin';
@@ -63,8 +71,12 @@ const callCurrentWeatherDataAPI = function(cityName){
             });
         } else {
             alert(`Error: ${response.statusText}`)
-        }
+        };
     })
+};
+
+function renderDatabox(){
+
 }
 
 
@@ -83,6 +95,9 @@ formEl.addEventListener('submit', function (event) {
     end = formEl.endDate.value;
     console.log(end)
     callGeoNamesAPI();
-    callCurrentWeatherDataAPI(placeName)
+    callCurrentWeatherDataAPI(placeName);
+    //populate data
+    databoxEl.classList.remove('hide');
+
 })
 
