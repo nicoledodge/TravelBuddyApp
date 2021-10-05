@@ -2,14 +2,17 @@
 nav {
     background-color: rgba(36, 36, 36, 0.8);
 }
-main {
-    display:inline;
+.nav-wrapper{
+    padding:2px;
 }
-
+.image-box {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
 body {
     color: #333333;
     position: relative;
-    padding: 1px;
     font-family:'Helvetica', arial;
     height:1000px;
     background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
@@ -35,13 +38,13 @@ p {
     margin-bottom: 20px;
 }
 .btn {
+
     background: #428bca;
     border: #357ebd solid 1px;
     border-radius: 3px;
     color: #fff;
     display: inline-block;
     font-size: 14px;
-    padding: 8px 15px;
     text-decoration: none;
     text-align: center;
     min-width: 60px;
