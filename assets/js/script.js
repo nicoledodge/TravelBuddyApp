@@ -51,6 +51,8 @@ function callPixabayAPI() {
     })
 }
 
+
+
 // callGeoNamesAPI()
 
 // Search for - country/city- start date 
@@ -64,13 +66,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
-    placeName = formEl.placename.value;
-    // console.log(formEl.placename.value);
-    // console.log(placeName);
+    placeName = formEl.placename.value.trim();
+    console.log(formEl.placename.value);
+    console.log(placeName);
     start = formEl.startDate.value;
-    // console.log(start)
+    console.log(start)
     end = formEl.endDate.value;
-    // console.log(end)
+    console.log(end)
     callGeoNamesAPI();
 
 })
