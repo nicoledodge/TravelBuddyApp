@@ -19,6 +19,16 @@ body {
     background-repeat: no-repeat;
     background-size: auto;
 }
+   
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
 .wrap {
     padding: 40px;
     text-align: center;
@@ -28,12 +38,10 @@ hr {
     margin-top: 40px;
     margin-bottom: 40px;
     border: 0;
-    border-top: 1px solid #aaaaaa;
+    border-top: 1px 
+    solid #aaaaaa;
 }
-h1 {
-    font-size: 30px;
-    margin-bottom: 40px;
-}
+
 p {
     margin-bottom: 20px;
 }
@@ -120,16 +128,21 @@ header img {
 }
 
 .chip img {
-    height: 50px;
-    width: 50px;
+    height: 41px;
+    width: 41px;
  }
+
+ .chip {
+    font-size: 80%;
+ }
+ 
  footer {
     position:absolute;
     display:inline;
     bottom:0;
     width:100%;
-    background-color:#333333;
  }
+ 
  /* #github {
      display:flex;
      justify-content: space-around;
