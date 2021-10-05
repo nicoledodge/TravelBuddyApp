@@ -43,7 +43,7 @@
         <div class="modal-content">
           <div class="input-field col s6">
             <form id="form">
-              <input name="placename" id="placename" type="text" class="validate" placeholder="Where to?">
+              <input name="placename" id="placename" type="text" class="validate" placeholder="Where to? (Enter a city name)">
               <input name="startDate" id="startDate" type="date" class="datepicker">
               <input name="" id="endDate" type="date" class="datepicker">
               <button type="submit" class="modal-close btn waves-effect waves-light right">Submit</button>
@@ -58,19 +58,18 @@
       </div>
 
 
-      <div class="col s12 m7" id = "databox">
+      <div class="col s12 m7 hide" id = "databox">
         <h2 class="header" id="cityname">City Name</h2>
         <div class="card horizontal small">
-          <div class="card-image" id="cityphoto">
-            <img src="https://lorempixel.com/100/190/nature/6">
+          <div class="card-image" id="pix">
+            <img id="pixabay" src="https://lorempixel.com/100/190/nature/6">
           </div>
-          <div class="card-image"id="countryflag">
-            <img src="https://lorempixel.com/100/190/nature/6">
+          <div>
+            <img id="flag" src=""/>
           </div>
           <div class="card-stacked">
             <div class="card-content">
               <div id="dates">
-                <p>meow meow</p>
               </div>
               <div id="countdown">
                 Your trip to ...

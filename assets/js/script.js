@@ -1,14 +1,23 @@
 //DOM Queries 
 const formEl = document.getElementById('form');
+const databoxEl = document.getElementById('databox');
+const modalEl = document.getElementById('modal1');
+const cityEl = document.getElementById('cityname');
+const pixEl = document.getElementById('pixabay')
+const dateEl = document.getElementById('dates');
+const countdownEl = document.getElementById('countdown');
+const weatherEl = document.getElementById('weather');
+const flagEl = document.getElementById('flag');
 
 //Global Variables 
 let placeName = 'austin';
 const geoNamesUsername = 'matmll12';
 let countryCode;
-let flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`
+let flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`;
 let start;
 let end;
 let currentWeatherData;
+let pixabayImg;
 
 //callGeoNamesAPI
 
@@ -40,13 +49,17 @@ function callPixabayAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data.hits[0].largeImageURL);
+                // console.log(data.hits[0].largeImageURL);
+                pixabayImg = data.hits[0].largeImageURL;
+                // callCurrentWeatherDataAPI();
+                renderDatabox();
+
             });
         } else {
-            alert(`Error: ${response.statusText}`)
+            alert(`Error: ${response.statusText}`);
         }
     })
-}
+};
 
 //make Weather API call
 
@@ -60,11 +73,24 @@ const callCurrentWeatherDataAPI = function(cityName){
             response.json().then(function(data){
                 currentWeatherData = data;
                 console.log(data);
+                renderDatabox();
             });
         } else {
             alert(`Error: ${response.statusText}`)
-        }
+        };
     })
+};
+
+function renderDatabox(){
+    cityEl.textContent = placeName;
+    pixEl.setAttribute('src',pixabayImg);
+    flagEl.setAttribute('src',flagUrl);
+    dateEl.innerHTML = `
+    <p>${start} - ${end}</p>
+    `;
+    // weatherEl.
+    databoxEl.classList.remove('hide');
+
 }
 
 
@@ -76,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
     placeName = formEl.placename.value.trim();
+    
     console.log(formEl.placename.value);
     console.log(placeName);
     start = formEl.startDate.value;
@@ -83,6 +110,9 @@ formEl.addEventListener('submit', function (event) {
     end = formEl.endDate.value;
     console.log(end)
     callGeoNamesAPI();
-    callCurrentWeatherDataAPI(placeName)
-})
+    callCurrentWeatherDataAPI(placeName);
+    // renderDatabox();
+    // databoxEl.classList.remove('hide');
+
+});
 
