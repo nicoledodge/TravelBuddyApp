@@ -1,8 +1,4 @@
 //DOM Queries 
-// const placeNameEl = document.getElementById('placename');
-// const startEl = document.getElementById('startdate');
-// const endEl = document.getElementById('enddate');
-// const submitBtn = document.getElementById('submit')
 const formEl = document.getElementById('form');
 
 //Global Variables 
@@ -12,8 +8,9 @@ let countryCode;
 let flagUrl = `https://www.countryflags.io/${countryCode}/shiny/64.png`
 let start;
 let end;
+let currentWeatherData;
 
-//make first API call
+//callGeoNamesAPI
 
 const callGeoNamesAPI = function () {
 
@@ -34,7 +31,7 @@ const callGeoNamesAPI = function () {
     })
 }
 
-//country name 
+//callPixabay
 
 function callPixabayAPI() {
 
@@ -51,12 +48,24 @@ function callPixabayAPI() {
     })
 }
 
+//make Weather API call
 
+const callCurrentWeatherDataAPI = function(cityName){
+  
+    const apiKey = 'f2d872dec206d66d9deec95927164a7b';
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`
 
-// callGeoNamesAPI()
-
-// Search for - country/city- start date 
-// show name of country, PLACE NAME, flag, Population, current weather, countdown to departure(number of days) add image Pixabay
+    fetch(apiUrl).then(function(response) {
+        if(response.ok){
+            response.json().then(function(data){
+                currentWeatherData = data;
+                console.log(data);
+            });
+        } else {
+            alert(`Error: ${response.statusText}`)
+        }
+    })
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -74,6 +83,6 @@ formEl.addEventListener('submit', function (event) {
     end = formEl.endDate.value;
     console.log(end)
     callGeoNamesAPI();
-
+    callCurrentWeatherDataAPI(placeName)
 })
 
