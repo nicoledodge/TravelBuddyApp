@@ -13,7 +13,9 @@ nav {
 body {
     color: #333333;
     position: relative;
-    font-family:'Helvetica', arial;
+    padding: 1px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
     height:1000px;
     background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
     background-repeat: no-repeat;
