@@ -133,7 +133,7 @@ function callTicketMasterAPI() {
 };
 
 
-eventBtn.addEventListener('click', callTicketMasterAPI);
+// eventBtn.addEventListener('click', callTicketMasterAPI);
 
 
 
