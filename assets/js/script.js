@@ -13,6 +13,7 @@ const sidebarEl = document.getElementById('sidebar');
 
 //Global Variables 
 let placeName; 
+let placeNameDisp;
 let countryCode;
 let flagUrl;
 let start;
@@ -94,7 +95,7 @@ function callCurrentWeatherDataAPI(cityName){
 //declare renderDatabox function
 
 function renderDatabox(){
-    cityEl.textContent = placeName;
+    cityEl.textContent = placeNameDisp;
     pixEl.setAttribute('src',pixabayImg);
     flagEl.setAttribute('src',flagUrl);
     dateEl.innerHTML = `
@@ -125,16 +126,18 @@ function callTicketMasterAPI() {
                 // console.log(data.hits[0].largeImageURL);
                
                 
-                
+               
             });
         } else {
             alert(`Error: ${response.statusText}`);
         }
     })
+   
 };
 
 
-// eventBtn.addEventListener('click', callTicketMasterAPI);
+//eventSidebar.classList .remove('hide');
+// eventBtn.addEventListener('click', callTicketMasterAPI)
 
 
 
@@ -151,13 +154,33 @@ document.addEventListener('DOMContentLoaded', function () {
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
     placeName = formEl.placename.value.trim();
+    placeNameDisp = capitalizeFirstLetter(placeName);
+    // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
+    //weather app needs hyphen
+    placeName = placeName.replace(/\s/g, '-');
     start = formEl.startDate.value;
     end = formEl.endDate.value;
     callGeoNamesAPI();
 });
 
+// help via https://flexiple.com/javascript-capitalize-first-letter/
+function capitalizeFirstLetter(str){
+    const arr = str.split(' ');
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    
+    };
+
+    return arr.join(' ');
+
+};
+
 //API Call Sequence 
 
 //call geonamesAPI which set the flag url calls PixaBay api which calls current weather API which calls render function. 
 
-//watch out for spaces 
+//watch out for spaces
+
+//for events sidebar
+
+console.log(eventSidebar);
