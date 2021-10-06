@@ -27,6 +27,7 @@ let eventImg;
 let eventUrl;
 let eventDte;
 let eventTime;
+let eventDateTime;
 let temp;
 let trips = JSON.parse(localStorage.getItem('trips')) || [];
 
@@ -145,12 +146,14 @@ function callTicketMasterAPI() {
                         console.log('hit the date IF');
                         console.log(typeof eventTime)
                         //eventTime = eventTime.substring(0,eventTime.length-3)
-                        eventTime = eventDte+' '+eventTime;
+                        eventDateTime = eventDte+' '+eventTime;
                         console.log(eventTime+ ' = date and time');
-                        eventTime = moment(eventTime).format('LT');
+                        eventTime = moment(eventDateTime).format('LT');
+                        eventDte = moment(eventDateTime).format('LL')
                     } else {
                         // console.log('hit the else because eventTime = '+ eventTime);
                         eventTime = '';
+                        eventDte = moment(eventDte).format('LL');
                     }
                     let html = `
                     <div class="card">
