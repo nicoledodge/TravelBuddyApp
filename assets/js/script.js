@@ -11,8 +11,9 @@ const flagEl = document.getElementById('flag');
 const eventBtn = document.getElementById('events_button');
 const sidebarEl = document.getElementById('sidebar');
 
+
 //Global Variables 
-let placeName; 
+let placeName;
 let placeNameDisp;
 let countryCode;
 let flagUrl;
@@ -21,12 +22,12 @@ let end;
 let currentWeatherData;
 let pixabayImg;
 
-let eventName; 
+let eventName;
 let eventImg;
 let eventUrl;
 let eventDte;
 let eventTime;
-let temp; 
+let temp;
 
 
 //declare GeoNamesAPI API function
@@ -74,17 +75,18 @@ function callPixabayAPI() {
 
 //declare Weather API function
 
-function callCurrentWeatherDataAPI(cityName){
-  
+function callCurrentWeatherDataAPI(cityName) {
+
     const apiKey = 'f2d872dec206d66d9deec95927164a7b';
     const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`
 
-    fetch(apiUrl).then(function(response) {
-        if(response.ok){
-            response.json().then(function(data){
+    fetch(apiUrl).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
                 currentWeatherData = data;
                 temp = Math.round(currentWeatherData.main.temp);
-                renderDatabox();
+                // renderDatabox();
+                callTicketMasterAPI();
             });
         } else {
             alert(`Error: ${response.statusText}`)
@@ -94,18 +96,28 @@ function callCurrentWeatherDataAPI(cityName){
 
 //declare renderDatabox function
 
-function renderDatabox(){
+function renderDatabox() {
     cityEl.textContent = placeNameDisp;
-    pixEl.setAttribute('src',pixabayImg);
-    flagEl.setAttribute('src',flagUrl);
-    dateEl.innerHTML = `
-    <p> Arrival: ${start} <br/> Departure: ${end}</p>
-    `;
+    pixEl.setAttribute('src', pixabayImg);
+    flagEl.setAttribute('src', flagUrl);
+    countdown = daysRemaining();
+    start = moment(start).format('dddd, MMMM Do YYYY');
+    end = moment(end).format('dddd, MMMM Do YYYY');
+    dateEl.innerHTML = `<p> Arrival: ${start} <br/> Departure: ${end}</p>`;
     // weatherEl.
-    weatherEl.innerHTML =  `<p class="temp">Temp: ${temp} &#8457;</p>`
+    countdownEl.innerHTML = `<p>Days until trip: ${countdown}</p>`
+    weatherEl.innerHTML = `<p class="temp">Temp: ${temp} &#8457;</p>`
     sidebarEl.classList.remove('hide');
     databoxEl.classList.remove('hide');
 }
+// countdown timer - days until
+function daysRemaining() {
+    var eventdate = moment(start);
+    var todaysdate = moment();
+    return eventdate.diff(todaysdate, 'days')+1;
+}
+// alert(daysRemaining());
+
 
 
 function callTicketMasterAPI() {
@@ -115,24 +127,29 @@ function callTicketMasterAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
-                eventName = data._embedded.events[0].name;
-                eventDte = data._embedded.events[0].dates.start.localDate;
-                eventTime = data._embedded.events[0].dates.start.localTime;
-                eventUrl = data._embedded.events[0].url;
-                eventImg = data._embedded.events[0].images[5].url;
-                console.log(eventName);
-
+                for (let i = 0; i < 5; i++) {
+                    eventName = data._embedded.events[i].name;
+                    eventDte = data._embedded.events[i].dates.start.localDate;
+                    eventTime = data._embedded.events[i].dates.start.localTime;
+                    eventUrl = data._embedded.events[i].url;
+                    eventImg = data._embedded.events[i].images[5].url;
+                    let html = `<div><img src="${eventImg}"><p> ${eventName} <br/> ${eventDte} <br/> ${eventTime}</p><a href="${eventUrl}">Link</a></div>`
+                    sidebarEl.innerHTML += html;
+                    console.log(sidebarEl);
+                }
+                console.log("callTicketMasterAPI");
+                renderDatabox();
                 // console.log(data.hits[0].largeImageURL);
-               
-                
-               
+                // for loop
+
+                //console.log 
+
             });
         } else {
             alert(`Error: ${response.statusText}`);
         }
     })
-   
+
 };
 
 
@@ -164,11 +181,11 @@ formEl.addEventListener('submit', function (event) {
 });
 
 // help via https://flexiple.com/javascript-capitalize-first-letter/
-function capitalizeFirstLetter(str){
+function capitalizeFirstLetter(str) {
     const arr = str.split(' ');
     for (let i = 0; i < arr.length; i++) {
         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
-    
+
     };
 
     return arr.join(' ');
@@ -183,4 +200,4 @@ function capitalizeFirstLetter(str){
 
 //for events sidebar
 
-console.log(eventSidebar);
+// console.log(eventSidebar);
