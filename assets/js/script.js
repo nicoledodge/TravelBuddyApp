@@ -28,7 +28,7 @@ let eventUrl;
 let eventDte;
 let eventTime;
 let temp;
-
+let trips = JSON.parse(localStorage.getItem('trips')) || [];
 
 //declare GeoNamesAPI API function
 
@@ -177,6 +177,12 @@ formEl.addEventListener('submit', function (event) {
     placeName = placeName.replace(/\s/g, '-');
     start = formEl.startDate.value;
     end = formEl.endDate.value;
+    
+    const trip = {placename: placeName, start: start, end: end}
+    trips.push(trip);
+
+    localStorage.setItem("trips", JSON.stringify(trips));
+
     callGeoNamesAPI();
 });
 
