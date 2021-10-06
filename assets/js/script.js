@@ -136,8 +136,8 @@ function callTicketMasterAPI() {
 };
 
 
-//eventSidebar.classList .remove('hide');
-eventBtn.addEventListener('click', callTicketMasterAPI)
+// do not uncomment this garbage
+// eventBtn.addEventListener('click', callTicketMasterAPI)
 
 
 
