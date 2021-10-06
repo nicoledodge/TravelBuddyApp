@@ -127,6 +127,7 @@ function callTicketMasterAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
+                sidebarEl.innerHTML = '';
                 var num = data._embedded.events.length > 4? 5: data._embedded.events.length;
                 for (let i = 0; i < num; i++) {
                     console.log(data);
