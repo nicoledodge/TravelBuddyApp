@@ -133,13 +133,37 @@ function callTicketMasterAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                for (let i = 0; i < 5; i++) {
+                var num = data._embedded.events.length > 4? 5: data._embedded.events.length;
+                for (let i = 0; i < num; i++) {
+                    console.log(data);
                     eventName = data._embedded.events[i].name;
                     eventDte = data._embedded.events[i].dates.start.localDate;
                     eventTime = data._embedded.events[i].dates.start.localTime;
                     eventUrl = data._embedded.events[i].url;
                     eventImg = data._embedded.events[i].images[5].url;
-                    let html = `<div><img src="${eventImg}"><p> ${eventName} <br/> ${eventDte} <br/> ${eventTime}</p><a href="${eventUrl}">Link</a></div>`
+                    //let html = `<div><img src="${eventImg}"><p> ${eventName} <br/> ${eventDte} <br/> ${eventTime}</p><a href="${eventUrl}">Link</a></div>`
+                    if (eventTime === 'undefined'){
+                        console.log('hit the date IF');
+                        eventTime = '';
+                    } else {
+                        // console.log('hit the else because eventTime = '+ eventTime);
+                        console.log(typeof eventTime)
+                        //eventTime = eventTime.substring(0,eventTime.length-3)
+                        eventTime = moment(eventTime).format('LT');
+                    }
+                    let html = `
+                    <div class="card">
+              <div class="card-image">
+                <img src="${eventImg}">
+                <span class="card-title">${eventName}</span>
+              </div>
+              <div class="card-content">
+                <p>${eventDte} <br/>${eventTime}</p>
+              </div>
+              <div class="card-action">
+                <a href="${eventUrl}">See more</a>
+                    `
+                    
                     sidebarEl.innerHTML += html;
                     console.log(sidebarEl);
                 }

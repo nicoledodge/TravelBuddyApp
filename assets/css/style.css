@@ -1,6 +1,10 @@
 
+:root{
+    --bgcolor: rgba(36, 36, 36, 0.8);
+}
+
 nav {
-    background-color: rgba(36, 36, 36, 0.8);
+    background-color: var(--bgcolor);
 }
 .nav-wrapper{
     padding:2px;
@@ -36,6 +40,7 @@ body {
     background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
     background-repeat: no-repeat;
     background-size: auto;
+    background-color: var(--bgcolor);
 }
    
 h1, h2, h3, h4, h5, h6 {
@@ -171,3 +176,9 @@ header img {
      display:flex;
      justify-content: space-around;
  } */
+
+ @media only screen and (max-width: 600px) {
+    body {
+        background-size: auto;
+    }
+}
