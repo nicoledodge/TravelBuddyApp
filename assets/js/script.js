@@ -10,10 +10,12 @@ const weatherEl = document.getElementById('weather');
 const flagEl = document.getElementById('flag');
 const eventBtn = document.getElementById('events_button');
 const sidebarEl = document.getElementById('sidebar');
+const shareBtn = document.getElementById('share');
 const historyBtn = document.getElementById('history-button');
 const historyEl = document.getElementById('history');
 const exitBtn = document.getElementById('exit-history');
 const historyUl = document.getElementById('historyUl');
+
 
 
 //Global Variables 
@@ -192,6 +194,17 @@ function callTicketMasterAPI() {
 
 };
 
+// help via https://flexiple.com/javascript-capitalize-first-letter/
+function capitalizeFirstLetter(str) {
+    const arr = str.split(' ');
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+
+    };
+
+    return arr.join(' ');
+
+};
 
 //eventSidebar.classList .remove('hide');
 // eventBtn.addEventListener('click', callTicketMasterAPI)
@@ -244,17 +257,15 @@ formEl.addEventListener('submit', function (event) {
     callGeoNamesAPI();
 });
 
-// help via https://flexiple.com/javascript-capitalize-first-letter/
-function capitalizeFirstLetter(str) {
-    const arr = str.split(' ');
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+//copy link to clipboard when click share icon
+shareBtn.addEventListener('click', function(event){
+    
+        const appUrl = document.URL;
+        console.log(appUrl);
+        navigator.clipboard.writeText(appUrl);
+        
+})
 
-    };
-
-    return arr.join(' ');
-
-};
 
 
 
