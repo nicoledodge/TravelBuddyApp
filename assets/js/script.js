@@ -127,7 +127,8 @@ function callTicketMasterAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                for (let i = 0; i < data._embedded.events.length; i++) {
+                var num = data._embedded.events.length > 4? 5: data._embedded.events.length;
+                for (let i = 0; i < num; i++) {
                     console.log(data);
                     eventName = data._embedded.events[i].name;
                     eventDte = data._embedded.events[i].dates.start.localDate;
