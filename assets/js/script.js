@@ -9,6 +9,7 @@ const countdownEl = document.getElementById('countdown');
 const weatherEl = document.getElementById('weather');
 const flagEl = document.getElementById('flag');
 const eventBtn = document.getElementById('events_button');
+const eventSidebar =  document.getElementById('sidebar');
 
 //Global Variables 
 let placeName; 
@@ -124,16 +125,17 @@ function callTicketMasterAPI() {
                 // console.log(data.hits[0].largeImageURL);
                
                 
-                
+                eventSidebar.classList .remove('hide');   
             });
         } else {
             alert(`Error: ${response.statusText}`);
         }
     })
+   
 };
 
-
-eventBtn.addEventListener('click', callTicketMasterAPI);
+//eventSidebar.classList .remove('hide');
+eventBtn.addEventListener('click', callTicketMasterAPI)
 
 
 
@@ -159,4 +161,8 @@ formEl.addEventListener('submit', function (event) {
 
 //call geonamesAPI which set the flag url calls PixaBay api which calls current weather API which calls render function. 
 
-//watch out for spaces 
+//watch out for spaces
+
+//for events sidebar
+
+console.log(eventSidebar);
