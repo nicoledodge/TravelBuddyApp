@@ -161,21 +161,22 @@ function callTicketMasterAPI() {
 
 //eventSidebar.classList .remove('hide');
 // eventBtn.addEventListener('click', callTicketMasterAPI)
-console.log(trips[0].placeName)
 
 
 
 //add event listeners 
 //for history button
 historyBtn.addEventListener('click', function(event) {
-    for (let i = 0; i < 5; i++) {
-        let stuff = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2"> ${trips[i].placeName} - ${trips[i].start} - ${trips[i].end} <i class="material-icons right">history</i></button></li>`;
-        historyUl.innerHTML += stuff;
-        console.log(i);
+    var num = trips.length > 4? 5: trips.length;
+
+    for (let i = 0; i < num ; i++) {
+        let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2"> ${trips[i].placeName} - ${trips[i].start} - ${trips[i].end} <i class="material-icons right">history</i></button></li>`;
+        historyUl.innerHTML += html;
     }
+    historyEl.classList.remove('hide');
     databoxEl.classList.add('hide');
     sidebarEl.classList.add('hide');
-    historyEl.classList.remove('hide');
+
 })
 
 exitBtn.addEventListener('click', function(event) {
