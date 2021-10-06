@@ -100,7 +100,7 @@ function renderDatabox() {
     cityEl.textContent = placeNameDisp;
     pixEl.setAttribute('src', pixabayImg);
     flagEl.setAttribute('src', flagUrl);
-    countdown = daysRemaining();
+    let countdown = daysRemaining();
     start = moment(start).format('dddd, MMMM Do YYYY');
     end = moment(end).format('dddd, MMMM Do YYYY');
     dateEl.innerHTML = `<p> Arrival: ${start} <br/> Departure: ${end}</p>`;
