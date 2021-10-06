@@ -10,6 +10,10 @@ const weatherEl = document.getElementById('weather');
 const flagEl = document.getElementById('flag');
 const eventBtn = document.getElementById('events_button');
 const sidebarEl = document.getElementById('sidebar');
+const historyBtn = document.getElementById('history-button');
+const historyEl = document.getElementById('history');
+const exitBtn = document.getElementById('exit-history');
+const historyUl = document.getElementById('historyUl');
 
 
 //Global Variables 
@@ -31,6 +35,8 @@ let temp;
 let trips = JSON.parse(localStorage.getItem('trips')) || [];
 
 //declare GeoNamesAPI API function
+
+
 
 function callGeoNamesAPI() {
 
@@ -155,11 +161,28 @@ function callTicketMasterAPI() {
 
 //eventSidebar.classList .remove('hide');
 // eventBtn.addEventListener('click', callTicketMasterAPI)
+console.log(trips[0].placeName)
 
 
 
 //add event listeners 
+//for history button
+historyBtn.addEventListener('click', function(event) {
+    for (let i = 0; i < 5; i++) {
+        let stuff = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2"> ${trips[i].placeName} - ${trips[i].start} - ${trips[i].end} <i class="material-icons right">history</i></button></li>`;
+        historyUl.innerHTML += stuff;
+        console.log(i);
+    }
+    databoxEl.classList.add('hide');
+    sidebarEl.classList.add('hide');
+    historyEl.classList.remove('hide');
+})
 
+exitBtn.addEventListener('click', function(event) {
+    databoxEl.classList.remove('hide');
+    sidebarEl.classList.remove('hide');
+    historyEl.classList.add('hide');
+})
 
 //for modal 
 document.addEventListener('DOMContentLoaded', function () {
@@ -178,7 +201,7 @@ formEl.addEventListener('submit', function (event) {
     start = formEl.startDate.value;
     end = formEl.endDate.value;
     
-    const trip = {placename: placeName, start: start, end: end}
+    const trip = {placeName, start, end}
     trips.push(trip);
 
     localStorage.setItem("trips", JSON.stringify(trips));
@@ -197,6 +220,8 @@ function capitalizeFirstLetter(str) {
     return arr.join(' ');
 
 };
+
+
 
 //API Call Sequence 
 
