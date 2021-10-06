@@ -130,10 +130,11 @@ function callTicketMasterAPI() {
                 sidebarEl.innerHTML = '';
                 var num = data._embedded.events.length > 4? 5: data._embedded.events.length;
                 for (let i = 0; i < num; i++) {
-                    console.log(data);
+                    // console.log(data);
                     eventName = data._embedded.events[i].name;
                     eventDte = data._embedded.events[i].dates.start.localDate;
                     eventTime = data._embedded.events[i].dates.start.localTime;
+                    console.log(eventTime +' = eventTime');
                     eventUrl = data._embedded.events[i].url;
                     eventImg = data._embedded.events[i].images[5].url;
                     //let html = `<div><img src="${eventImg}"><p> ${eventName} <br/> ${eventDte} <br/> ${eventTime}</p><a href="${eventUrl}">Link</a></div>`
