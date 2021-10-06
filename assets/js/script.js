@@ -141,7 +141,7 @@ function callTicketMasterAPI() {
                     } else {
                         // console.log('hit the else because eventTime = '+ eventTime);
                         console.log(typeof eventTime)
-                        eventTime = eventTime.substring(0,eventTime.length-3)
+                        //eventTime = eventTime.substring(0,eventTime.length-3)
                         eventTime = moment(eventTime).format('LT');
                     }
                     let html = `
