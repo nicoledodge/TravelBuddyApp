@@ -9,6 +9,7 @@ const countdownEl = document.getElementById('countdown');
 const weatherEl = document.getElementById('weather');
 const flagEl = document.getElementById('flag');
 const eventBtn = document.getElementById('events_button');
+const sidebarEl = document.getElementById('sidebar');
 
 //Global Variables 
 let placeName; 
@@ -101,7 +102,7 @@ function renderDatabox(){
     `;
     // weatherEl.
     weatherEl.innerHTML =  `<p class="temp">Temp: ${temp} &#8457;</p>`
-
+    sidebarEl.classList.remove('hide');
     databoxEl.classList.remove('hide');
 }
 
