@@ -10,6 +10,22 @@ nav {
     justify-content: center;
     height: fit-content;
 }
+
+#readyBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.card-stacked {
+    display: flex;
+    align-items: space-evenly;
+}
+
+#flag {
+    float: right;
+    margin-right: 10px;
+}
+
 body {
     color: #333333;
     position: relative;
@@ -29,6 +45,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 30px;
     margin-bottom: 40px;
+}
+
+#maincontainer {
+    width: 100%;
 }
 
 .wrap {
