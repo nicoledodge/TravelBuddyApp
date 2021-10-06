@@ -31,6 +31,7 @@ let eventImg;
 let eventUrl;
 let eventDte;
 let eventTime;
+let eventDateTime;
 let temp;
 let trips = JSON.parse(localStorage.getItem('trips')) || [];
 
@@ -46,6 +47,7 @@ function callGeoNamesAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
+                // console.log(data);
                 //retrieves country code 
                 countryCode = data.geonames[0].countryCode;
                 //generates flag icon url 
@@ -133,23 +135,31 @@ function callTicketMasterAPI() {
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
+                sidebarEl.innerHTML = '';
                 var num = data._embedded.events.length > 4? 5: data._embedded.events.length;
                 for (let i = 0; i < num; i++) {
-                    console.log(data);
+                    // console.log(data);
                     eventName = data._embedded.events[i].name;
                     eventDte = data._embedded.events[i].dates.start.localDate;
-                    eventTime = data._embedded.events[i].dates.start.localTime;
+                    eventTime = data._embedded.events[i].dates.start.localTime || '';
+                    // eventTime = eventDte+eventTime
+                    // eventTime = eventTime.slice(0,eventTime.length-3)
+                    console.log(eventTime +' = eventTime');
                     eventUrl = data._embedded.events[i].url;
                     eventImg = data._embedded.events[i].images[5].url;
                     //let html = `<div><img src="${eventImg}"><p> ${eventName} <br/> ${eventDte} <br/> ${eventTime}</p><a href="${eventUrl}">Link</a></div>`
-                    if (eventTime === 'undefined'){
+                    if (eventTime){
                         console.log('hit the date IF');
-                        eventTime = '';
-                    } else {
-                        // console.log('hit the else because eventTime = '+ eventTime);
                         console.log(typeof eventTime)
                         //eventTime = eventTime.substring(0,eventTime.length-3)
-                        eventTime = moment(eventTime).format('LT');
+                        eventDateTime = eventDte+' '+eventTime;
+                        console.log(eventTime+ ' = date and time');
+                        eventTime = moment(eventDateTime).format('LT');
+                        eventDte = moment(eventDateTime).format('LL')
+                    } else {
+                        // console.log('hit the else because eventTime = '+ eventTime);
+                        eventTime = '';
+                        eventDte = moment(eventDte).format('LL');
                     }
                     let html = `
                     <div class="card">
