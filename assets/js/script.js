@@ -9,7 +9,7 @@ const countdownEl = document.getElementById('countdown');
 const weatherEl = document.getElementById('weather');
 const flagEl = document.getElementById('flag');
 const eventBtn = document.getElementById('events_button');
-const eventSidebar =  document.getElementById('sidebar');
+const sidebarEl = document.getElementById('sidebar');
 
 //Global Variables 
 let placeName; 
@@ -103,7 +103,7 @@ function renderDatabox(){
     `;
     // weatherEl.
     weatherEl.innerHTML =  `<p class="temp">Temp: ${temp} &#8457;</p>`
-
+    sidebarEl.classList.remove('hide');
     databoxEl.classList.remove('hide');
 }
 
@@ -126,7 +126,7 @@ function callTicketMasterAPI() {
                 // console.log(data.hits[0].largeImageURL);
                
                 
-                eventSidebar.classList .remove('hide');   
+               
             });
         } else {
             alert(`Error: ${response.statusText}`);
@@ -136,7 +136,7 @@ function callTicketMasterAPI() {
 };
 
 
-// do not uncomment this garbage
+//eventSidebar.classList .remove('hide');
 // eventBtn.addEventListener('click', callTicketMasterAPI)
 
 
