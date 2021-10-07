@@ -15,7 +15,7 @@ const historyBtn = document.getElementById('history-button');
 const historyEl = document.getElementById('history');
 const exitBtn = document.getElementById('exit-history');
 const historyUl = document.getElementById('historyUl');
-
+const carouselEl = document.querySelectorAll('carousel-item');
 
 
 //Global Variables 
