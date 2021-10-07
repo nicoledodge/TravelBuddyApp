@@ -124,7 +124,7 @@ function renderDatabox() {
 function daysRemaining() {
     var eventdate = moment(start);
     var todaysdate = moment();
-    return eventdate.diff(todaysdate, 'days')+1;
+    return eventdate.diff(todaysdate, 'days') + 1;
 }
 // alert(daysRemaining());
 
@@ -138,7 +138,7 @@ function callTicketMasterAPI() {
         if (response.ok) {
             response.json().then(function (data) {
                 sidebarEl.innerHTML = '';
-                var num = data._embedded.events.length > 4? 5: data._embedded.events.length;
+                var num = data._embedded.events.length > 4 ? 5 : data._embedded.events.length;
                 for (let i = 0; i < num; i++) {
                     // console.log(data);
                     eventName = data._embedded.events[i].name;
@@ -146,16 +146,16 @@ function callTicketMasterAPI() {
                     eventTime = data._embedded.events[i].dates.start.localTime || '';
                     // eventTime = eventDte+eventTime
                     // eventTime = eventTime.slice(0,eventTime.length-3)
-                    console.log(eventTime +' = eventTime');
+                    console.log(eventTime + ' = eventTime');
                     eventUrl = data._embedded.events[i].url;
                     eventImg = data._embedded.events[i].images[5].url;
                     //let html = `<div><img src="${eventImg}"><p> ${eventName} <br/> ${eventDte} <br/> ${eventTime}</p><a href="${eventUrl}">Link</a></div>`
-                    if (eventTime){
+                    if (eventTime) {
                         console.log('hit the date IF');
                         console.log(typeof eventTime)
                         //eventTime = eventTime.substring(0,eventTime.length-3)
-                        eventDateTime = eventDte+' '+eventTime;
-                        console.log(eventTime+ ' = date and time');
+                        eventDateTime = eventDte + ' ' + eventTime;
+                        console.log(eventTime + ' = date and time');
                         eventTime = moment(eventDateTime).format('LT');
                         eventDte = moment(eventDateTime).format('LL')
                     } else {
@@ -163,19 +163,9 @@ function callTicketMasterAPI() {
                         eventTime = '';
                         eventDte = moment(eventDte).format('LL');
                     }
-                    let html = `
-                    <div class="card">
-              <div class="card-image">
-                <img src="${eventImg}">
-                <span class="card-title">${eventName}</span>
-              </div>
-              <div class="card-content">
-                <p>${eventDte} <br/>${eventTime}</p>
-              </div>
-              <div class="card-action">
-                <a href="${eventUrl}">See more</a>
-                    `
-                    
+                    let html = ` <div class="card"><div class="card-image">  <img src="${eventImg}">  <span class="card-title">${eventName}</span></div><div class="card-content">
+                <p>${eventDte} <br/>${eventTime}</p></div><div class="card-action"><a href="${eventUrl}">See more</a> `
+
                     sidebarEl.innerHTML += html;
                     console.log(sidebarEl);
                 }
@@ -213,10 +203,10 @@ function capitalizeFirstLetter(str) {
 
 //add event listeners 
 //for history button
-historyBtn.addEventListener('click', function(event) {
-    var num = trips.length > 4? 5: trips.length;
+historyBtn.addEventListener('click', function (event) {
+    var num = trips.length > 4 ? 5 : trips.length;
 
-    for (let i = 0; i < num ; i++) {
+    for (let i = 0; i < num; i++) {
         let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2"> ${trips[i].placeName} - ${trips[i].start} - ${trips[i].end} <i class="material-icons right">history</i></button></li>`;
         historyUl.innerHTML += html;
     }
@@ -226,7 +216,7 @@ historyBtn.addEventListener('click', function(event) {
 
 })
 
-exitBtn.addEventListener('click', function(event) {
+exitBtn.addEventListener('click', function (event) {
     databoxEl.classList.remove('hide');
     sidebarEl.classList.remove('hide');
     historyEl.classList.add('hide');
@@ -248,8 +238,8 @@ formEl.addEventListener('submit', function (event) {
     placeName = placeName.replace(/\s/g, '-');
     start = formEl.startDate.value;
     end = formEl.endDate.value;
-    
-    const trip = {placeName, start, end}
+
+    const trip = { placeName, start, end }
     trips.push(trip);
 
     localStorage.setItem("trips", JSON.stringify(trips));
@@ -258,12 +248,12 @@ formEl.addEventListener('submit', function (event) {
 });
 
 //copy link to clipboard when click share icon
-shareBtn.addEventListener('click', function(event){
-    
-        const appUrl = document.URL;
-        console.log(appUrl);
-        navigator.clipboard.writeText(appUrl);
-        
+shareBtn.addEventListener('click', function (event) {
+
+    const appUrl = document.URL;
+    console.log(appUrl);
+    navigator.clipboard.writeText(appUrl);
+
 })
 
 
