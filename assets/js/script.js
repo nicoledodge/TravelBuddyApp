@@ -254,6 +254,7 @@ shareBtn.addEventListener('click', function(event){
         const appUrl = document.URL;
         console.log(appUrl);
         navigator.clipboard.writeText(appUrl);
+        M.toast({html: 'Link copied!', classes: 'rounded'});
         
 })
 
