@@ -222,6 +222,10 @@ header img {
     font-size: 12px;
     border-radius: 10px;
 }
+
+#exit-history {
+    color: #333333;
+}
  
  
  /* #github {

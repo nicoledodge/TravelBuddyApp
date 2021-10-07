@@ -236,8 +236,8 @@ function submitFormHandler() {
 //add event listeners 
 //for history button
 historyBtn.addEventListener('click', function (event) {
+    historyUl.innerHTML = '';
     var num = trips.length > 4 ? 5 : trips.length;
-
     for (let i = 0; i < num; i++) {
         let html = `<li class="histBtn"><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
         historyUl.innerHTML += html;
