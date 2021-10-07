@@ -45,22 +45,14 @@ body {
     /* padding: 1px; */
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
-    /* height:100vh; */
-    /* background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
-     */
-    /* added this before switching the background image to the main container VS the body */
-    /* background-repeat: no-repeat;
-    /* background-size: cover; */
 
     /* background-color: var(--bgcolor); */
 }
 
 .main_container {
-    /* added the picture to the main container to target height of the picture */
-    background-image: url("/assets/images/Colorado.jpg");
-    background-repeat:repeat-y; 
-    background-size: cover;  
-    background-position: center; 
+    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/colorado.jpg?raw=true");
+    background-repeat: no-repeat;
+    background-color: var(--bgcolor);
 }
    
 h1, h2, h3, h4, h5, h6 {
@@ -71,11 +63,13 @@ h1 {
     font-size: 30px;
     margin-bottom: 40px;
 }
-
+.carousel {
+    height: 500px;
+  }
 #maincontainer {
     width: 100%;
     /* added more VH to the picture */
-    height: 250vh;
+    height: 100vh;
 }
 
 .wrap {
@@ -209,6 +203,7 @@ header img {
         color: white;
         text-align: center; */
       }
+
  
  
  /* #github {
