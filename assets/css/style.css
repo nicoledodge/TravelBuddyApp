@@ -41,22 +41,25 @@ body {
     /* padding: 1px; */
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
-    height:100vh;
-    /* background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
-     */
-    /* added this before switching the background image to the main container VS the body */
-    /* background-repeat: no-repeat;
-    /* background-size: cover; */
+    /* height:250px; */
+    /* background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/colorado.jpg?raw=true"); */
+    /* background-repeat:repeat;  */
+    /* background-size: cover;  */
+    /* background-position: center;  */
 
     background-color: var(--bgcolor);
 }
 
 .main_container {
+    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/colorado.jpg?raw=true");
+    background-repeat: no-repeat;
+    background-color: var(--bgcolor);
+
     /* added the picture to the main container to target height of the picture */
-    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
-    background-repeat:repeat-y; 
+    /* background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/colorado.jpg?raw=true");
+    background-repeat:no-repeat; 
     background-size: cover; 
-    background-position: center; 
+    background-position: center;  */
 }
    
 h1, h2, h3, h4, h5, h6 {
@@ -67,11 +70,13 @@ h1 {
     font-size: 30px;
     margin-bottom: 40px;
 }
-
+.carousel {
+    height: 500px;
+  }
 #maincontainer {
     width: 100%;
     /* added more VH to the picture */
-    height: 250vh;
+    height: 100vh;
 }
 
 .wrap {
