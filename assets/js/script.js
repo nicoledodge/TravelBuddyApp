@@ -43,7 +43,7 @@ function tripData (){
     const data = JSON.parse(localStorage.getItem('trips'))
     console.log(data)
 if(data){
-    return data.slice(-10);
+    return data.slice(-8);
 } else {
     return [];
 };
@@ -78,15 +78,15 @@ function callGeoNamesAPI() {
 
 function callPixabayAPI() {
 
-    const apiUrl = `https://pixabay.com/api/?key=23699081-1c7d96634df54c3a4261e64ca&q=${countryCode}`
+    const apiUrl = `https://pixabay.com/api/?key=23699081-1c7d96634df54c3a4261e64ca&q=${placeName}`
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
                 //retrieve first image from pixabay array
-                pixabayImg = data.hits[0].largeImageURL;
+                pixabayImg = data.hits[Math.floor(Math.random()*data.hits.length)].largeImageURL;
                 //renders data inside databox
-                callCurrentWeatherDataAPI(placeName)
+                callCurrentWeatherDataAPI(placeName);
             });
         } else {
             alert(`Error: ${response.statusText}`);
@@ -220,7 +220,9 @@ function submitFormHandler() {
 
         const trip = { placeName, start, end }
         trips.push(trip);
-        trips = trips.slice(-10);
+        console.log(trips);
+        trips = trips.slice(-8);
+        console.log(trips);
 
         localStorage.setItem("trips", JSON.stringify(trips));
         
@@ -238,7 +240,7 @@ function submitFormHandler() {
 //for history button
 historyBtn.addEventListener('click', function (event) {
     historyUl.innerHTML = '';
-    var num = trips.length > 4 ? 5 : trips.length;
+    var num = trips.length > 7 ? 8 : trips.length;
     for (let i = 0; i < num; i++) {
         let html = `<li class="histBtn"><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
         historyUl.innerHTML += html;
