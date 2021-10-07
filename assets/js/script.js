@@ -35,7 +35,7 @@ let eventDte;
 let eventTime;
 let eventDateTime;
 let temp;
-let trips = JSON.parse(localStorage.getItem('trips')) || [];
+let trips = JSON.parse(localStorage.getItem('trips')).slice(-10) || [];
 
 //declare GeoNamesAPI API function
 
@@ -239,12 +239,17 @@ formEl.addEventListener('submit', function (event) {
     start = formEl.startDate.value;
     end = formEl.endDate.value;
 
+    if (placeName && start && end){
     const trip = { placeName, start, end }
     trips.push(trip);
+    trips = trips.slice(-10);
 
     localStorage.setItem("trips", JSON.stringify(trips));
 
     callGeoNamesAPI();
+    } else {
+        M.toast({html: 'Please enter a city and start and end dates!', classes: 'rounded'});
+    }
 });
 
 //copy link to clipboard when click share icon
@@ -256,7 +261,7 @@ shareBtn.addEventListener('click', function(event){
         navigator.clipboard.writeText(appUrl);
         M.toast({html: 'Link copied!', classes: 'rounded'});
         
-})
+});
 
 
 
