@@ -1,6 +1,6 @@
 
 :root{
-    --bgcolor: rgba(36, 36, 36, 0.8);
+    --bgcolor: rgba(73, 89, 99);
 }
 
 nav {
@@ -41,6 +41,7 @@ button {
 
 body {
     color: #333333;
+    background-color: rgba(73, 89, 99);
     position: relative;
     /* padding: 1px; */
     font-family: 'Quicksand', sans-serif;
@@ -178,7 +179,7 @@ header img {
     left: 25%;
 }
 #sidebar {
-    /* height: 100vh; */
+    height: 100vh;
 }
 .chip img {
     height: 41px;
