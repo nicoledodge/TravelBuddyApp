@@ -85,6 +85,10 @@ hr {
     border-top: 1px 
     solid #aaaaaa;
 }
+
+#exit-history {
+    color:#333333
+}
 nav .brand-logo {
     padding-left: 10px;
 }
