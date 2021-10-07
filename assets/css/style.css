@@ -205,6 +205,23 @@ header img {
         text-align: center; */
       }
 
+#historyUl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.histBtn {
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 48%;
+   
+    
+}
+.histBtn button {
+    font-size: 12px;
+    border-radius: 10px;
+}
  
  
  /* #github {

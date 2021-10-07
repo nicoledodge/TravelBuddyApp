@@ -239,7 +239,7 @@ historyBtn.addEventListener('click', function (event) {
     var num = trips.length > 4 ? 5 : trips.length;
 
     for (let i = 0; i < num; i++) {
-        let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
+        let html = `<li class="histBtn"><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
         historyUl.innerHTML += html;
     }
     historyEl.classList.remove('hide');
@@ -272,6 +272,7 @@ formEl.addEventListener('submit', function (event) {
     start = formEl.startDate.value;
     end = formEl.endDate.value;
     submitFormHandler();
+    historyEl.classList.add('hide');
 
 });
 
@@ -295,16 +296,18 @@ historyUl.addEventListener('click', function(event){
         placeName = event.target.getAttribute('data-place');
         start = event.target.getAttribute('data-start');
         end = event.target.getAttribute('data-end');
-
+        historyEl.classList.add('hide');
         submitFormHandler();
     };
 });
 
 
 //history exit button
-historyExitBtn.addEventListener('click',function(){
-
-})
+historyExitBtn.addEventListener('click',function(event){
+    if (!placeName || !start || !end) {
+        databoxEl.classList.add('hide');
+    }
+});
 
 //API Call Sequence 
 
