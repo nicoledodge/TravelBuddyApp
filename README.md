@@ -8,7 +8,7 @@ Contributors: Nicole Dodge, Brooke Jones, Jaime Martinez, Jack Manzer, Mat Lundi
 
 ```md
 
-## Purpose
+## About the App
 Our project team was tasked with tackling a real-world problem or need by creating an application. This task will allow us to increase our collaboration skills, gain exposure to server-side APIs,  and experience things we may run into as we venture out in the world as new developers. [End w/ 1-2 sentences about motivation for development...similar to and/or segue into our user story]
 ```
 
@@ -47,8 +47,7 @@ THEN my saved data persist
 ```
 
 ```md
-## Technologies Used
-TK
+## APIs Used (with links)
 ```
 
 ```md
@@ -57,7 +56,7 @@ TK
 ```
 
 ```md
-## Icebox
+## Future Development
 [Ideas for future development]
 [Additional desired functionalities, etc.]
 
