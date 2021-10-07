@@ -41,7 +41,7 @@ body {
     /* padding: 1px; */
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
-    height:100vh;
+    height:100;
     /* background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
      */
     /* added this before switching the background image to the main container VS the body */
@@ -54,7 +54,7 @@ body {
 .main_container {
     /* added the picture to the main container to target height of the picture */
     background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
-    background-repeat:repeat-y; 
+    background-repeat:no-repeat; 
     background-size: cover; 
     background-position: center; 
 }
