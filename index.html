@@ -24,62 +24,73 @@
       <li><a href="#"><i class="material-icons">airplanemode_active</i></a></li>
       <li><a><i class="material-icons" id = "history-button">history</i></a> </li>
       <li><a href="#"><i class="material-icons">more_vert</i></a></li>
+
     </ul>
   </div>
 </nav>
 
 <body>
-  <main class="main_container"> 
+  <main class="main_container">
 
     <!-- ready to travel button-->
     <div class="container row" id="readyBtn">
-        <a class="waves-effect waves-light btn-large blue-grey darken-2 modal-trigger" href="#modal1">Ready to Travel?
+      <a class="waves-effect waves-light btn-large blue-grey darken-2 modal-trigger" href="#modal1">Ready to Travel?
         <i class="material-icons right">launch</i></a>
     </div>
 
     <!-- User Input Modal -->
     <div id="modal1" class="modal">
-        <div class="modal-content">
-            <div class="input-field col s6">
-                <form id="form">
-                    <input name="placename" id="placename" type="text" class="validate" placeholder="Where to? (Enter a city name)">
-                    <input name="startDate" id="startDate" type="date" class="datepicker">
-                    <input name="" id="endDate" type="date" class="datepicker">
-                    <button type="submit" class="modal-close btn waves-effect waves-light right">Submit</button>
-                </form>
-            </div> <!-- input field -->
-        </div><!-- modal content -->
-        <div class="modal-footer"></div>
+      <div class="modal-content">
+        <div class="input-field col s6">
+          <form id="form">
+            <input name="placename" id="placename" type="text" class="validate"
+              placeholder="Where to? (Enter a city name)">
+            <input name="startDate" id="startDate" type="date" class="datepicker">
+            <input name="" id="endDate" type="date" class="datepicker">
+            <button type="submit" class="modal-close btn waves-effect waves-light right">Submit</button>
+          </form>
+        </div> <!-- input field -->
+      </div><!-- modal content -->
+      <div class="modal-footer"></div>
     </div><!-- end model -->
 
     <!-- databox container | sidebar container  -->
     <div class="container row" id="maincontainer">
-        
-        <div class="col s12 m8 l9 hide" id="databox">
-            <h2 class="header" id="cityname">City Name</h2>
-            <div class="card horizontal small">
-                <div class="card-image" id="pix">
-                    <img id="pixabay" src="https://lorempixel.com/100/190/nature/6">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <div id="dates"></div>
-                        <div id="countdown"></div>
-                        <div id="weather">Current weather:</div>
-                    </div><!-- card content -->
-                    <div>
-                      <img id="flag" src="" />
-                    </div>  
-                </div><!-- card stacked -->
-            </div> <!-- card horizontal small -->
-        </div>  <!-- databox -->
 
-        <div class="col s12 m3 l3 hide carousel" id="sidebar">
-          <div class="row">
-            <div class="col s3 m7">
+      <div class="col s12 m8 l9 hide" id="databox">
+        <h2 class="header" id="cityname">City Name</h2>
+        <div class="card horizontal small">
+          <div class="card-image" id="pix">
+            <img id="pixabay" src="https://lorempixel.com/100/190/nature/6">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <div id="dates"></div>
+              <div id="countdown"></div>
+              <div id="weather">Current weather:</div>
+            </div><!-- card content -->
+            <div>
+              <img id="flag" src="" />
             </div>
+          </div><!-- card stacked -->
+        </div> <!-- card horizontal small -->
+      </div> <!-- databox -->
+
+  
+
+      </div>
+    </div> <!-- main container-->
+
+    <div class="col s12 m3 l3 hide carousel-slider" id="sidebar">
+      <a class="carousel-item">
+        <div class="row">
+          <div class="col s3 m7">
           </div>
         </div>
+      </a>
+    </div>
+
+
             <!-- history div -->
     <div class="container row hide" id="history">
       <div class="col s12 m8 l9">
@@ -101,58 +112,68 @@
     </div> <!-- main container-->
 
 
+    </div>
+    <!-- <div class="modal-footer">
+                <a href="#!" class="modal-close btn waves-effect waves-light right">Events</a>
+              </div> -->
+    </div>
+    </div>
+    </div>
+
+
   </main>
   <footer class="page-footer blue-grey darken-2" id="footer">
-      <div class="container center-align"> 
-        
-            <h6>TravelBuddy contributors:</h6>
-            
-            <div class="row"></div> <!-- padding div -->
-            <div class="row">
-                
-                <div class="chip hoverable">
-                    <img src="https://avatars.githubusercontent.com/u/76898813?v=4" alt="photo of developer, Nikki">
-                    <a href="https://github.com/nicoledodge">Nikki</a>
-                </div>
-                
-                <div class="chip hoverable">
-                    <img src="https://avatars.githubusercontent.com/u/90587982?v=4" alt="photo of developer, Brooke">
-                    <a href="https://github.com/jones406">Brooke</a>
-                </div>
-        
-                <div class="chip hoverable">
-                    <img src="https://avatars.githubusercontent.com/u/85711239?v=4" alt="photo of developer, Mat">
-                    <a href="https://github.com/mat-lundin">Mat</a>
-                </div>
-        
-                <div class="chip hoverable">
-                    <img src="https://avatars.githubusercontent.com/u/90355259?v=4" alt="photo of developer, Jaime">
-                    <a href="https://github.com/JAMATX38">Jaime</a>
-                </div>
-        
-                <div class="chip hoverable">
-                    <img src="https://avatars.githubusercontent.com/u/72629176?v=4" alt="photo of developer, Jack">
-                    <a href="https://github.com/jackmanzer">Jack</a>
-                </div>
-            </div>  <!-- row -->
-            <div class="row"></div> <!-- padding div -->
-            <div class="col center-align">
-              <button class="btn-small waves-effect waves-teal blue-grey darken-2"><i
-                  class="material-icons right">email</i>Contact Us</button>
-            </div>
-        </div> <!-- container div -->
-      
+    <div class="container center-align">
+
+      <h6>TravelBuddy contributors:</h6>
+
+      <div class="row"></div> <!-- padding div -->
+      <div class="row">
+
+        <div class="chip hoverable">
+          <img src="https://avatars.githubusercontent.com/u/76898813?v=4" alt="photo of developer, Nikki">
+          <a href="https://github.com/nicoledodge">Nikki</a>
+        </div>
+
+        <div class="chip hoverable">
+          <img src="https://avatars.githubusercontent.com/u/90587982?v=4" alt="photo of developer, Brooke">
+          <a href="https://github.com/jones406">Brooke</a>
+        </div>
+
+        <div class="chip hoverable">
+          <img src="https://avatars.githubusercontent.com/u/85711239?v=4" alt="photo of developer, Mat">
+          <a href="https://github.com/mat-lundin">Mat</a>
+        </div>
+
+        <div class="chip hoverable">
+          <img src="https://avatars.githubusercontent.com/u/90355259?v=4" alt="photo of developer, Jaime">
+          <a href="https://github.com/JAMATX38">Jaime</a>
+        </div>
+
+        <div class="chip hoverable">
+          <img src="https://avatars.githubusercontent.com/u/72629176?v=4" alt="photo of developer, Jack">
+          <a href="https://github.com/jackmanzer">Jack</a>
+        </div>
+      </div> <!-- row -->
+      <div class="row"></div> <!-- padding div -->
+      <div class="col center-align">
+        <button class="btn-small waves-effect waves-teal blue-grey darken-2"><i
+            class="material-icons right">email</i>Contact Us</button>
+      </div>
+    </div> <!-- container div -->
+
   </footer>
 
-<!-- Compiled and minified JavaScript -->
+  <!-- Compiled and minified JavaScript -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- <script async
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5BC-SBhtw__9Y7R0zcEWSkmVumQewOD4&libraries=places&callback=initMap">
 </script> -->
-<script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
-

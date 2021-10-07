@@ -19,6 +19,7 @@ const historyExitBtn = document.getElementById('exit-history');
 
 
 
+
 //Global Variables 
 let placeName;
 let placeNameDisp;
