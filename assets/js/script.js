@@ -190,7 +190,7 @@ function callTicketMasterAPI() {
             });
         } else {
             alert(`Error: ${response.statusText}`);
-        }
+        };
     })
 
 };
@@ -213,24 +213,32 @@ function submitFormHandler() {
     //weather app needs hyphen
     
     placeNameDisp = capitalizeFirstLetter(placeName);
-    placeName = placeName.replace(/\s/g, '-');
-
+    // placeName = placeName.replace(/\s/g, '-');
+    const placeNameSplitSpace = placeName.split(' ');
+    const placeNameSplitComma = placeName.split(',');
+    console.log(placeNameSplitComma, placeNameSplitComma.length);
     
-    if (placeName && start && end){
+    if (placeName && start && end && placeNameSplitSpace.length === 1 && placeNameSplitComma.length === 1){
 
         const trip = { placeName, start, end }
         trips.push(trip);
-        console.log(trips);
+        // console.log(trips);
         trips = trips.slice(-8);
-        console.log(trips);
+        // console.log(trips);
 
         localStorage.setItem("trips", JSON.stringify(trips));
         
         callGeoNamesAPI();
+        } else if (placeName && start && end && (placeNameSplitSpace.length !== 1 || placeNameSplitComma.length !== 1)){
+            M.toast({html: 'Please use only one-word cities only for now :)', classes: 'rounded'});
+            formEl.placename.value = '';
+        } else if ((!placeName || !start || !end) && placeNameSplitSpace.length === 1 && placeNameSplitComma.length === 1){
+            M.toast({html: 'Please fill out all forms :)', classes: 'rounded'});
         } else {
-            M.toast({html: 'Please enter a city and start and end dates!', classes: 'rounded'});
-        }
-}
+            M.toast({html: 'Please fill out all forms, and use one-word cities only for now :)', classes: 'rounded'});
+            formEl.placename.value = '';
+        };
+};
 //eventSidebar.classList .remove('hide');
 // eventBtn.addEventListener('click', callTicketMasterAPI)
 
@@ -249,7 +257,7 @@ historyBtn.addEventListener('click', function (event) {
     databoxEl.classList.add('hide');
     sidebarEl.classList.add('hide');
 
-})
+});
 
 exitBtn.addEventListener('click', function (event) {
     databoxEl.classList.remove('hide');
