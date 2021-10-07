@@ -248,12 +248,13 @@ formEl.addEventListener('submit', function (event) {
 });
 
 //copy link to clipboard when click share icon
-shareBtn.addEventListener('click', function (event) {
-
-    const appUrl = document.URL;
-    console.log(appUrl);
-    navigator.clipboard.writeText(appUrl);
-
+// https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+shareBtn.addEventListener('click', function(event){
+    
+        const appUrl = document.URL;
+        console.log(appUrl);
+        navigator.clipboard.writeText(appUrl);
+        
 })
 
 
