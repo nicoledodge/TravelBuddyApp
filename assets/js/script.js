@@ -163,7 +163,7 @@ function callTicketMasterAPI() {
                         eventTime = '';
                         eventDte = moment(eventDte).format('LL');
                     }
-                    let html = ` <div class="card"><div class="card-image">  <img src="${eventImg}">  <span class="card-title">${eventName}</span></div><div class="card-content">
+                    let html = ` <div class="card"><div class="card-image">  <img src="${eventImg}"> </div><div class="card-content"><span class="card-title">${eventName}</span>
                 <p>${eventDte} <br/>${eventTime}</p></div><div class="card-action"><a href="${eventUrl}">See more</a> `
 
                     sidebarEl.innerHTML += html;
