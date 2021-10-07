@@ -196,6 +196,29 @@ function capitalizeFirstLetter(str) {
 
 };
 
+//call this via submit button and previous search button
+function submitFormHandler() {
+    // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
+    //weather app needs hyphen
+    placeName = formEl.placename.value.trim();
+    placeNameDisp = capitalizeFirstLetter(placeName);
+    placeName = placeName.replace(/\s/g, '-');
+    start = formEl.startDate.value;
+    end = formEl.endDate.value;
+    
+    if (placeName && start && end){
+
+        const trip = { placeName, start, end }
+        trips.push(trip);
+        trips = trips.slice(-10);
+
+        localStorage.setItem("trips", JSON.stringify(trips));
+        
+        callGeoNamesAPI();
+        } else {
+            M.toast({html: 'Please enter a city and start and end dates!', classes: 'rounded'});
+        }
+}
 //eventSidebar.classList .remove('hide');
 // eventBtn.addEventListener('click', callTicketMasterAPI)
 
@@ -231,25 +254,9 @@ document.addEventListener('DOMContentLoaded', function () {
 //form submit listener 
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
-    placeName = formEl.placename.value.trim();
-    placeNameDisp = capitalizeFirstLetter(placeName);
-    // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
-    //weather app needs hyphen
-    placeName = placeName.replace(/\s/g, '-');
-    start = formEl.startDate.value;
-    end = formEl.endDate.value;
 
-    if (placeName && start && end){
-    const trip = { placeName, start, end }
-    trips.push(trip);
-    trips = trips.slice(-10);
+    submitFormHandler();
 
-    localStorage.setItem("trips", JSON.stringify(trips));
-
-    callGeoNamesAPI();
-    } else {
-        M.toast({html: 'Please enter a city and start and end dates!', classes: 'rounded'});
-    }
 });
 
 //copy link to clipboard when click share icon
@@ -269,9 +276,10 @@ historyUl.addEventListener('click', function(event){
     if (event.target.matches('button')) {
         // console.log('this is ' +event.target)
         // console.log('this.data-place = ' + event.target.getAttribute('data-place'))
-        event.target.getAttribute('data-place')
-        event.target.getAttribute('data-start')
-        event.target.getAttribute('data-end')
+        placeName = event.target.getAttribute('data-place');
+        start = event.target.getAttribute('data-start');
+        end = event.target.getAttribute('data-end');
+        submitFormHandler();
     };
 });
 
