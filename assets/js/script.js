@@ -35,7 +35,7 @@ let eventDte;
 let eventTime;
 let eventDateTime;
 let temp;
-let trips = JSON.parse(localStorage.getItem('trips')) || [];
+let trips = JSON.parse(localStorage.getItem('trips')).slice(-10) || [];
 
 //declare GeoNamesAPI API function
 
@@ -196,6 +196,29 @@ function capitalizeFirstLetter(str) {
 
 };
 
+//call this via submit button and previous search button
+function submitFormHandler() {
+    // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
+    //weather app needs hyphen
+    placeName = formEl.placename.value.trim();
+    placeNameDisp = capitalizeFirstLetter(placeName);
+    placeName = placeName.replace(/\s/g, '-');
+    start = formEl.startDate.value;
+    end = formEl.endDate.value;
+    
+    if (placeName && start && end){
+
+        const trip = { placeName, start, end }
+        trips.push(trip);
+        trips = trips.slice(-10);
+
+        localStorage.setItem("trips", JSON.stringify(trips));
+        
+        callGeoNamesAPI();
+        } else {
+            M.toast({html: 'Please enter a city and start and end dates!', classes: 'rounded'});
+        }
+}
 //eventSidebar.classList .remove('hide');
 // eventBtn.addEventListener('click', callTicketMasterAPI)
 
@@ -207,7 +230,7 @@ historyBtn.addEventListener('click', function (event) {
     var num = trips.length > 4 ? 5 : trips.length;
 
     for (let i = 0; i < num; i++) {
-        let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2"> ${trips[i].placeName} - ${trips[i].start} - ${trips[i].end} <i class="material-icons right">history</i></button></li>`;
+        let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
         historyUl.innerHTML += html;
     }
     historyEl.classList.remove('hide');
@@ -236,20 +259,9 @@ document.addEventListener('DOMContentLoaded', function () {
 //form submit listener 
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
-    placeName = formEl.placename.value.trim();
-    placeNameDisp = capitalizeFirstLetter(placeName);
-    // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
-    //weather app needs hyphen
-    placeName = placeName.replace(/\s/g, '-');
-    start = formEl.startDate.value;
-    end = formEl.endDate.value;
-    
-    const trip = { placeName, start, end }
-    trips.push(trip);
 
-    localStorage.setItem("trips", JSON.stringify(trips));
+    submitFormHandler();
 
-    callGeoNamesAPI();
 });
 
 //copy link to clipboard when click share icon
@@ -259,9 +271,22 @@ shareBtn.addEventListener('click', function(event){
         const appUrl = document.URL;
         console.log(appUrl);
         navigator.clipboard.writeText(appUrl);
+        M.toast({html: 'Link copied!', classes: 'rounded'});
         
-})
+});
 
+// click on history and bring that search back up
+//event listener on ul id historyUl, then check matches button and grab data values
+historyUl.addEventListener('click', function(event){
+    if (event.target.matches('button')) {
+        // console.log('this is ' +event.target)
+        // console.log('this.data-place = ' + event.target.getAttribute('data-place'))
+        placeName = event.target.getAttribute('data-place');
+        start = event.target.getAttribute('data-start');
+        end = event.target.getAttribute('data-end');
+        submitFormHandler();
+    };
+});
 
 
 
