@@ -14,6 +14,10 @@ button {
     color: white;
     border: none;
 }
+/* button:focus {
+    background-color: transparent;  
+} */
+
 .image-box {
     display: flex;
     justify-content: center;
@@ -41,21 +45,21 @@ body {
     /* padding: 1px; */
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
-    height:100vh;
+    /* height:100vh; */
     /* background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
      */
     /* added this before switching the background image to the main container VS the body */
     /* background-repeat: no-repeat;
     /* background-size: cover; */
 
-    background-color: var(--bgcolor);
+    /* background-color: var(--bgcolor); */
 }
 
 .main_container {
     /* added the picture to the main container to target height of the picture */
-    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
+    background-image: url("/assets/images/Colorado.jpg");
     background-repeat:repeat-y; 
-    background-size: cover; 
+    background-size: cover;  
     background-position: center; 
 }
    
@@ -180,7 +184,7 @@ header img {
     left: 25%;
 }
 #sidebar {
-    height: 100vh;
+    /* height: 100vh; */
 }
 .chip img {
     height: 41px;
@@ -193,7 +197,7 @@ header img {
  
  footer {
     /* position:absolute; */
-    display:inline;
+    /* display:inline; */
     bottom:0;
     width:100%;   
             /*had to fix the footer to the bottom so it would not be at the top of the page upon load  */
