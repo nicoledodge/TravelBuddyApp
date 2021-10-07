@@ -15,6 +15,7 @@ const historyBtn = document.getElementById('history-button');
 const historyEl = document.getElementById('history');
 const exitBtn = document.getElementById('exit-history');
 const historyUl = document.getElementById('historyUl');
+const historyExitBtn = document.getElementById('exit-history');
 
 
 
@@ -35,8 +36,17 @@ let eventDte;
 let eventTime;
 let eventDateTime;
 let temp;
-let trips = JSON.parse(localStorage.getItem('trips')).slice(-10) || [];
+let trips = tripData()
 
+function tripData (){
+    const data = JSON.parse(localStorage.getItem('trips'))
+    console.log(data)
+if(data){
+    return data.slice(-10);
+} else {
+    return [];
+};
+};
 //declare GeoNamesAPI API function
 
 
@@ -200,11 +210,10 @@ function capitalizeFirstLetter(str) {
 function submitFormHandler() {
     // from https://stackoverflow.com/questions/5963182/how-to-remove-spaces-from-a-string-using-javascript
     //weather app needs hyphen
-    placeName = formEl.placename.value.trim();
+    
     placeNameDisp = capitalizeFirstLetter(placeName);
     placeName = placeName.replace(/\s/g, '-');
-    start = formEl.startDate.value;
-    end = formEl.endDate.value;
+
     
     if (placeName && start && end){
 
@@ -227,10 +236,10 @@ function submitFormHandler() {
 //add event listeners 
 //for history button
 historyBtn.addEventListener('click', function (event) {
+    historyUl.innerHTML = '';
     var num = trips.length > 4 ? 5 : trips.length;
-
     for (let i = 0; i < num; i++) {
-        let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
+        let html = `<li class="histBtn"><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
         historyUl.innerHTML += html;
     }
     historyEl.classList.remove('hide');
@@ -259,8 +268,11 @@ document.addEventListener('DOMContentLoaded', function () {
 //form submit listener 
 formEl.addEventListener('submit', function (event) {
     event.preventDefault();
-
+    placeName = formEl.placename.value.trim();
+    start = formEl.startDate.value;
+    end = formEl.endDate.value;
     submitFormHandler();
+    historyEl.classList.add('hide');
 
 });
 
@@ -284,11 +296,18 @@ historyUl.addEventListener('click', function(event){
         placeName = event.target.getAttribute('data-place');
         start = event.target.getAttribute('data-start');
         end = event.target.getAttribute('data-end');
+        historyEl.classList.add('hide');
         submitFormHandler();
     };
 });
 
 
+//history exit button
+historyExitBtn.addEventListener('click',function(event){
+    if (!placeName || !start || !end) {
+        databoxEl.classList.add('hide');
+    }
+});
 
 //API Call Sequence 
 
