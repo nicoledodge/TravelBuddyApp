@@ -1,22 +1,28 @@
-# 07 Project 1: Interactive Front-End Application
+#TravelBuddy
+## 07 Project 1: Interactive Front-End Application
 
-URL: TK
+URL: https://nicoledodge.github.io/Project1/
 Version 1.0
-Deployment Date: TK
+Deployment Date: 10/08/2021
 Contributors: Nicole Dodge, Brooke Jones, Jaime Martinez, Jack Manzer, Mat Lundin
-[add our githubs]
-
+https://github.com/nicoledodge
+https://github.com/mat-lundin
+https://github.com/JAMATX38
+https://github.com/jones406
+https://github.com/jackmanzer
 ```md
 
 ## About the App
-Our project team was tasked with tackling a real-world problem or need by creating an application. This task will allow us to increase our collaboration skills, gain exposure to server-side APIs,  and experience things we may run into as we venture out in the world as new developers. [End w/ 1-2 sentences about motivation for development...similar to and/or segue into our user story]
+TravelBuddy: Travel Planning and Inspiration
+
+Our project team was tasked with tackling a real-world problem or need by creating an application. Our application helps travelers with trip planning and inspiration by giving them access to search cities worldwide and access data such as weather forecasts and events for their chosen dates. This task will allow us to increase our collaboration skills, gain exposure to server-side APIs, and experience things we may run into as we venture out in the world as new developers. 
 ```
 
 ## User Story
 
 ```md
 AS a traveler looking for travel ideas
-I WANT to see information [<--add detail] about the place I am traveling
+I WANT to gather information about the place I am traveling
 SO THAT I can better plan my trip
 ```
 
@@ -24,12 +30,12 @@ SO THAT I can better plan my trip
 
 ```md
 GIVEN I am using a travel app to plan my trip
-WHEN I open the planner
+WHEN I open the app
 THEN I am presented with an intuitive, polished, responsive UI 
-WHEN I want to interact with the planner
+WHEN I want to interact with the app
 THEN I can easily enter travel destination and dates
 WHEN I enter my information
-THEN I am presented with data including the country flag and [more TK]
+THEN I am presented with data to help me plan my trip
 WHEN I review the travel data
 THEN the data are organized into an easy-to-read format
 WHEN I click the save button
@@ -39,30 +45,30 @@ THEN my saved data persist
 ```
 
 ```md
-
 ## Project Constraints
-* Use at least two [server-side APIs]
+* Use at least two server-side APIs
 * Only able to use free, publicly available APIs
-* Do not use alerts, confirms, or prompts (use modals).
+* Do not use alerts, confirms, or prompts.
+* Use a CSS framework other than Bootstrap
 ```
 
 ```md
 ## APIs Used (with links)
+GeoNames http://www.geonames.org/
+Pixabay https://pixabay.com/
+TicketMaster https://www.ticketmaster.com/
+Moment JS https://momentjs.com/
+JQuery https://jquery.com/
 ```
 
 ```md
 ## Our application
-[screenshots/gifs TK]
-```
 
 ```md
 ## Future Development
-[Ideas for future development]
-[Additional desired functionalities, etc.]
-
-```md
-## Ideas for Improvement
-If you have ideas for improvement, please contact one of us via the links to our github pages.
-```
-
-
+Sharing on social media
+Improved search capabilities / search bar
+Airline and hotel information
+User profiles with login
+Progress Bar
+Upgraded API efficiency
