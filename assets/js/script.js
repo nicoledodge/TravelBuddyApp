@@ -207,7 +207,7 @@ historyBtn.addEventListener('click', function (event) {
     var num = trips.length > 4 ? 5 : trips.length;
 
     for (let i = 0; i < num; i++) {
-        let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2"> ${trips[i].placeName} - ${trips[i].start} - ${trips[i].end} <i class="material-icons right">history</i></button></li>`;
+        let html = `<li><button class="waves-effect waves-light btn-large blue-grey darken-2" data-place="${trips[i].placeName}" data-start="${trips[i].start}" data-end="${trips[i].end}">${trips[i].placeName}: ${trips[i].start} - ${trips[i].end}<i class="material-icons right">history</i></button></li>`;
         historyUl.innerHTML += html;
     }
     historyEl.classList.remove('hide');
@@ -263,6 +263,17 @@ shareBtn.addEventListener('click', function(event){
         
 });
 
+// click on history and bring that search back up
+//event listener on ul id historyUl, then check matches button and grab data values
+historyUl.addEventListener('click', function(event){
+    if (event.target.matches('button')) {
+        // console.log('this is ' +event.target)
+        // console.log('this.data-place = ' + event.target.getAttribute('data-place'))
+        event.target.getAttribute('data-place')
+        event.target.getAttribute('data-start')
+        event.target.getAttribute('data-end')
+    };
+});
 
 
 
