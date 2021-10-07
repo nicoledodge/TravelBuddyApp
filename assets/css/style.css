@@ -53,7 +53,7 @@ body {
 
 .main_container {
     /* added the picture to the main container to target height of the picture */
-    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
+    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.png?raw=true");
     background-repeat:no-repeat; 
     background-size: cover; 
     background-position: center; 
