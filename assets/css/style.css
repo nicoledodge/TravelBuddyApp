@@ -9,6 +9,11 @@ nav {
 .nav-wrapper{
     padding:2px;
 }
+button {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
 .image-box {
     display: flex;
     justify-content: center;
@@ -33,7 +38,7 @@ nav {
 body {
     color: #333333;
     position: relative;
-    padding: 1px;
+    /* padding: 1px; */
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     height:1000px;
@@ -68,7 +73,9 @@ hr {
     border-top: 1px 
     solid #aaaaaa;
 }
-
+nav .brand-logo {
+    padding-left: 10px;
+}
 p {
     margin-bottom: 20px;
 }
@@ -136,6 +143,12 @@ header img {
     padding-bottom: 5px;
   
 }
+.page-footer{
+    padding: 10px;
+}
+.page-footer .footer-copyright {
+    padding: 5px;
+}
 .column .title {
     display: flex;
     align-items: flex-start;
@@ -153,9 +166,9 @@ header img {
     position:absolute;
     left: 25%;
 }
-/* .sidebar {
-    background-color: rgba(85, 85, 85, 0.8)
-} */
+#sidebar {
+    height: 100vh;
+}
 .chip img {
     height: 41px;
     width: 41px;
