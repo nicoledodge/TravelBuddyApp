@@ -9,6 +9,11 @@ nav {
 .nav-wrapper{
     padding:2px;
 }
+button {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
 .image-box {
     display: flex;
     justify-content: center;
@@ -33,14 +38,25 @@ nav {
 body {
     color: #333333;
     position: relative;
-    padding: 1px;
+    /* padding: 1px; */
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
-    height:1000px;
-    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
-    background-repeat: no-repeat;
-    background-size: auto;
+    height:100vh;
+    /* background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
+     */
+    /* added this before switching the background image to the main container VS the body */
+    /* background-repeat: no-repeat;
+    /* background-size: cover; */
+
     background-color: var(--bgcolor);
+}
+
+.main_container {
+    /* added the picture to the main container to target height of the picture */
+    background-image: url("https://github.com/nicoledodge/Project1/blob/main/assets/images/Colorado.jpg?raw=true");
+    background-repeat:repeat-y; 
+    background-size: cover; 
+    background-position: center; 
 }
    
 h1, h2, h3, h4, h5, h6 {
@@ -54,6 +70,8 @@ h1 {
 
 #maincontainer {
     width: 100%;
+    /* added more VH to the picture */
+    height: 250vh;
 }
 
 .wrap {
@@ -68,7 +86,9 @@ hr {
     border-top: 1px 
     solid #aaaaaa;
 }
-
+nav .brand-logo {
+    padding-left: 10px;
+}
 p {
     margin-bottom: 20px;
 }
@@ -136,6 +156,12 @@ header img {
     padding-bottom: 5px;
   
 }
+.page-footer{
+    padding: 10px;
+}
+.page-footer .footer-copyright {
+    padding: 5px;
+}
 .column .title {
     display: flex;
     align-items: flex-start;
@@ -153,9 +179,9 @@ header img {
     position:absolute;
     left: 25%;
 }
-/* .sidebar {
-    background-color: rgba(85, 85, 85, 0.8)
-} */
+#sidebar {
+    height: 100vh;
+}
 .chip img {
     height: 41px;
     width: 41px;
@@ -166,11 +192,20 @@ header img {
  }
  
  footer {
-    position:absolute;
+    /* position:absolute; */
     display:inline;
     bottom:0;
-    width:100%;
- }
+    width:100%;   
+            /*had to fix the footer to the bottom so it would not be at the top of the page upon load  */
+        /* position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center; */
+      }
+ 
  
  /* #github {
      display:flex;
