@@ -100,7 +100,7 @@ function callPixabayAPI() {
 function callCurrentWeatherDataAPI(cityName) {
 
     const apiKey = 'f2d872dec206d66d9deec95927164a7b';
-    const apiUrl = `${heroku}http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`
+    const apiUrl = `${herokuUrl}http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
