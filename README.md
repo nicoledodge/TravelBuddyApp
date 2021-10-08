@@ -1,32 +1,41 @@
-#TravelBuddy
-## 07 Project 1: Interactive Front-End Application
+# TravelBuddy App
+##  Project 1: Interactive Front-End Application
 
-URL: https://nicoledodge.github.io/Project1/
-Version 1.0
-Deployment Date: 10/08/2021
-Contributors: Nicole Dodge, Brooke Jones, Jaime Martinez, Jack Manzer, Mat Lundin
-https://github.com/nicoledodge
-https://github.com/mat-lundin
-https://github.com/JAMATX38
-https://github.com/jones406
-https://github.com/jackmanzer
-```md
+URL: https://nicoledodge.github.io/Project1/  
+Version 1.0  
+Deployment Date: 10/08/2021  
 
-## About the App
+
+# Table of Contents
+
+1. [About the App](#about-the-app)
+2. [User Story](#user-story)
+3. [Acceptance Criteria](#acceptance-criteria)
+4. [Project Restraints](#project-restraints)
+5. [APIs Used](#apis-used)
+6. [Future Development](#future-development)
+7. [Contributors](#contributors)
+
+ 
+
+
+# About the App
+
 TravelBuddy: Travel Planning and Inspiration
 
 Our project team was tasked with tackling a real-world problem or need by creating an application. Our application helps travelers with trip planning and inspiration by giving them access to search cities worldwide and access data such as weather forecasts and events for their chosen dates. This task will allow us to increase our collaboration skills, gain exposure to server-side APIs, and experience things we may run into as we venture out in the world as new developers. 
-```
 
-## User Story
+![Planner Demo](/Users/nicoledodge/Desktop/Project/Project1/assets/images/TravelBuddy.gif)
+
+# User Story
 
 ```md
-AS a traveler looking for travel ideas
-I WANT to gather information about the place I am traveling
-SO THAT I can better plan my trip
+AS a traveler with a specified destination and dates,
+I WANT information about the place that I am traveling
+SO that I can be prepared and plan for my trip.
 ```
 
-## Acceptance Criteria
+# Acceptance Criteria
 
 ```md
 GIVEN I am using a travel app to plan my trip
@@ -44,31 +53,36 @@ WHEN I refresh the page
 THEN my saved data persist
 ```
 
-```md
-## Project Constraints
+
+# Project Constraints
 * Use at least two server-side APIs
 * Only able to use free, publicly available APIs
 * Do not use alerts, confirms, or prompts.
 * Use a CSS framework other than Bootstrap
-```
 
-```md
-## APIs Used (with links)
-GeoNames http://www.geonames.org/
-Pixabay https://pixabay.com/
-TicketMaster https://www.ticketmaster.com/
-Moment JS https://momentjs.com/
-JQuery https://jquery.com/
-```
+  
 
-```md
-## Our application
+# APIs Used
+GeoNames http://www.geonames.org/  
+Pixabay https://pixabay.com/  
+TicketMaster https://www.ticketmaster.com/  
+Moment JS https://momentjs.com/  
+JQuery https://jquery.com/  
 
-```md
-## Future Development
+
+
+
+# Future Development
 Sharing on social media
 Improved search capabilities / search bar
 Airline and hotel information
 User profiles with login
 Progress Bar
 Upgraded API efficiency
+
+# Contributors:   
+Nicole Dodge https://github.com/nicoledodge  
+Mat Lundin: https://github.com/mat-lundin  
+Jaime Martinez: https://github.com/JAMATX38  
+Brooke Jones: https://github.com/jones406  
+Jack Manzer: https://github.com/jackmanzer 

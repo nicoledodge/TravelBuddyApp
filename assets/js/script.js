@@ -124,10 +124,9 @@ function renderDatabox() {
     let countdown = daysRemaining();
     start = moment(start).format('dddd, MMMM Do YYYY');
     end = moment(end).format('dddd, MMMM Do YYYY');
-    dateEl.innerHTML = `<p> Arrival: ${start} <br/> Departure: ${end}</p>`;
-    // weatherEl.
-    countdownEl.innerHTML = `<p>Days until trip: ${countdown}</p>`
-    weatherEl.innerHTML = `<p class="temp">Temp: ${temp} &#8457;</p>`
+    dateEl.innerHTML = `<h6> Arrival:   ${start} <br/> Departure:   ${end}</h6>`;
+    countdownEl.innerHTML = `</br><p>Your trip to ${placeNameDisp} is ${countdown} days away!</p>`
+    weatherEl.innerHTML = ` </br><p class="temp"> Temperatue right now: </br></br> ${temp} &#8457;</p>`
     sidebarEl.classList.remove('hide');
     databoxEl.classList.remove('hide');
 }
@@ -150,7 +149,7 @@ function callTicketMasterAPI() {
             response.json().then(function (data) {
                 sidebarEl.innerHTML = '';
                 var num = data._embedded.events.length > 4 ? 5 : data._embedded.events.length;
-                for (let i = 0; i < num; i++) {
+                for (let i = 0; i < 2; i++) {
                     // console.log(data);
                     eventName = data._embedded.events[i].name;
                     eventDte = data._embedded.events[i].dates.start.localDate;
