@@ -16,7 +16,7 @@ const historyEl = document.getElementById('history');
 const exitBtn = document.getElementById('exit-history');
 const historyUl = document.getElementById('historyUl');
 const historyExitBtn = document.getElementById('exit-history');
-
+const herokuUrl = 'https://salty-mountain-68764.herokuapp.com/'
 
 
 
@@ -55,7 +55,8 @@ if(data){
 function callGeoNamesAPI() {
 
     const geoNamesUsername = 'matmll12';
-    const apiUrl = `http://api.geonames.org/searchJSON?q=&name_equals=${placeName}&maxRows=10&username=${geoNamesUsername}`;
+    const apiUrl = `${herokuUrl}http://api.geonames.org/searchJSON?q=&name_equals=${placeName}&maxRows=10&username=${geoNamesUsername}`;
+   
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
@@ -78,7 +79,7 @@ function callGeoNamesAPI() {
 
 function callPixabayAPI() {
 
-    const apiUrl = `https://pixabay.com/api/?key=23699081-1c7d96634df54c3a4261e64ca&q=${placeName}`
+    const apiUrl = `${herokuUrl}https://pixabay.com/api/?key=23699081-1c7d96634df54c3a4261e64ca&q=${placeName}`
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
@@ -99,7 +100,7 @@ function callPixabayAPI() {
 function callCurrentWeatherDataAPI(cityName) {
 
     const apiKey = 'f2d872dec206d66d9deec95927164a7b';
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`
+    const apiUrl = `${herokuUrl}http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
@@ -142,7 +143,7 @@ function daysRemaining() {
 
 function callTicketMasterAPI() {
 
-    const apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?countrycode=${countryCode}&city=${placeName}&startDateTime=${start}T00:00:00Z&endDateTime=${end}T23:59:59Z&apikey=BB0un6jhuIJmxoe1h6b5V9OOjpVPoXYw`
+    const apiUrl = `${herokuUrl}https://app.ticketmaster.com/discovery/v2/events.json?countrycode=${countryCode}&city=${placeName}&startDateTime=${start}T00:00:00Z&endDateTime=${end}T23:59:59Z&apikey=BB0un6jhuIJmxoe1h6b5V9OOjpVPoXYw`
     console.log(apiUrl);
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
