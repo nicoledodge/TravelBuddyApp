@@ -33,7 +33,9 @@ button {
     display: flex;
     align-items: space-evenly;
 }
-
+.card.small {
+    width:95%;
+}
 #flag {
     float: right;
     margin-right: 10px;
