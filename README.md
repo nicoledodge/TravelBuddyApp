@@ -25,7 +25,7 @@ TravelBuddy: Travel Planning and Inspiration
 
 Our project team was tasked with tackling a real-world problem or need by creating an application. Our application helps travelers with trip planning and inspiration by giving them access to search cities worldwide and access data such as weather forecasts and events for their chosen dates. This task will allow us to increase our collaboration skills, gain exposure to server-side APIs, and experience things we may run into as we venture out in the world as new developers. 
 
-![Planner Demo](/Users/nicoledodge/Desktop/Project/Project1/assets/images/TravelBuddy.gif)
+![TravelBuddy Demo](https://github.com/nicoledodge/Project1/blob/main/assets/images/TravelBuddy.gif?raw=true)
 
 # User Story
 
