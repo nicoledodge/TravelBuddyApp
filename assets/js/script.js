@@ -56,6 +56,7 @@ function callGeoNamesAPI() {
 
     const geoNamesUsername = 'matmll12';
     const apiUrl = `${herokuUrl}http://api.geonames.org/searchJSON?q=&name_equals=${placeName}&maxRows=10&username=${geoNamesUsername}`;
+    console.log(apiUrl);
    
 
     fetch(apiUrl).then(function (response) {
@@ -100,7 +101,8 @@ function callPixabayAPI() {
 function callCurrentWeatherDataAPI(cityName) {
 
     const apiKey = 'f2d872dec206d66d9deec95927164a7b';
-    const apiUrl = `${herokuUrl}http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`
+    const apiUrl = `${herokuUrl}http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
+    console.log(apiUrl);
 
     fetch(apiUrl).then(function (response) {
         if (response.ok) {
