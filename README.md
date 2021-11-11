@@ -1,7 +1,7 @@
 # TravelBuddy App
 ##  Project 1: Interactive Front-End Application
 
-URL: https://nicoledodge.github.io/Project1/  
+URL: https://github.com/nicoledodge/TravelBuddyApp  
 Version 1.0  
 Deployment Date: 10/08/2021  
 
